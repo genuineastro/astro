@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genuine Astro Guide – World Famous Astrology Expert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="custom.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- STARFIELD CANVAS -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- ===== 1. TOP BAR ===== -->
+  <div id="top-bar">
+    <div class="inner">
+      <span class="top-text">⭐ Call Now for Instant Astrology Consultation – Available 24/7</span>
+      <div class="top-btns">
+        <a href="tel:+919876839376" class="tb-call" style="font-family: sans-serif;"><i class="fa-solid fa-phone"></i> +91 98768 39376</a>
+        <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏"
+          target="_blank" class="tb-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp</a>
+        <a href="tel:+447917739589" class="tb-call" style="font-family: sans-serif;"><i class="fa-solid fa-phone"></i> +44 79177 39589</a>
+
+      </div>
+    </div>
+
+    <div id="x-mark">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+  </div>
+
+  <!-- ===== 2. NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">
+          <img src="./assets/logo-main.png" alt="logo" srcset="">
+        </span> GENUINE ASTRO GUIDE
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:+919876839376" class="btn btn-gold nav-cta">📞 Talk to Astrologer</a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero" onclick="closeMenu()">Home</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="tel:+919876543210" style="color:var(--gold);font-weight:700;">📞 Talk to Astrologer</a>
+    </div>
+  </nav>
+
+  <!-- ===== MARQUE ===== -->
+  <section id="movingService">
+    <div class="marquee">
+      <div class="marquee-content">
+        <span>
+          Struggling with love, marriage, or breakup problems?
+          One call , Real guidance. True solutions.
+          Call Now:<b style="font-family: sans-serif;"> +44-79177-39589 | +91-98768-39376 </b>
+        </span>
+
+        <!-- duplicate for seamless loop -->
+        <span>
+          Struggling with love, marriage, or breakup problems?
+          One call , Real guidance. True solutions.
+          Call Now: +44-79177-39589 | +91-98768-39376
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- <div class="xyz"> -->
+
+  <!-- ===== NAVBAR 2 ===== -->
+  <section id="nav2">
+    <div class="serviceIcon">
+      <div><i class="fa-solid fa-heart-crack"></i></div> Dispute Solution
+    </div>
+
+    <div class="serviceIcon">
+      <div><i class="fa-solid fa-star-of-david"></i></div> 35+ Years Experience
+    </div>
+
+    <div class="serviceIcon">
+      <div><i class="fa-solid fa-face-smile-beam"></i></div> Globally Trusted
+    </div>
+
+    <div class="serviceIcon">
+      <div><i class="fa-solid fa-thumbs-up"></i></div> Accurate Guidance
+    </div>
+
+    <div class="serviceIcon">
+      <div><i class="fa-solid fa-clock"></i></div> Quick Guidance Within 24 Hours
+    </div>
+  </section>
+
+  <!-- ===== 3. HERO ===== -->
+  <section id="hero">
+    <div class="hero-orbit"></div>
+    <div class="hero-orbit"></div>
+    <div class="hero-orbit"></div>
+    <div class="container" style="position:relative;z-index:3;">
+      <div class="hero-badge">✨ Trusted by 10k+ Clients Across Globe</div>
+      <h1 class="hero-title">
+        <span class="line1">World Famous</span>
+        <span class="line2">Astrology Expert</span>
+      </h1>
+      <div class="hero-problems">
+        <span>Love Marriage</span>
+        <span class="sep">•</span>
+        <span>Relationship Issues</span>
+        <span class="sep">•</span>
+        <span>Divorce Problems</span>
+        <span class="sep">•</span>
+        <span>Breakup Issues</span>
+        <span class="sep">•</span>
+        <span>Extra marital Problems</span>
+      </div>
+      <div class="hero-btns">
+
+        <a href="tel:+919876839376" class="btn btn-call">
+          <i class="fa-solid fa-phone"></i>
+          <span>Call Now</span>
+        </a>
+
+        <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏"
+          target="_blank" class="btn btn-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp Consultation</span>
+        </a>
+
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll to Explore</span>
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- </div> -->
+
+  <!-- ===== 5. PROBLEMS ===== -->
+  <section id="problems" class="section">
+    <div class="container">
+      <div class="center reveal">
+        <span class="section-tag">Here to Help</span>
+        <h2 class="section-title">Problems <span>We Solve</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-sub">Whatever challenge you face, our expert Vedic astrology solutions can guide you toward
+          clarity and resolution.</p>
+      </div>
+
+      <div class="problems-grid">
+        <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏" class="problem-card reveal">
+          <span class="problem-icon">
+            <img src="./assets/1.jpeg" alt="" srcset="">
+          </span>
+          <div class="problem-name">Love Problem</div>
+        </a>
+
+        <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏" class="problem-card reveal">
+          <span class="problem-icon">
+            <img src="./assets/2.jpeg" alt="" srcset="">
+          </span>
+          <div class="problem-name">Marriage Problem</div>
+        </a>
+
+        <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏" class="problem-card reveal">
+          <span class="problem-icon">
+            <img src="./assets/3.jpeg" alt="" srcset="">
+          </span>
+          <div class="problem-name">Relationship Problem</div>
+        </a>
+
+        <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏" class="problem-card reveal">
+          <span class="problem-icon">
+            <img src="./assets/4.jpeg" alt="" srcset="">
+          </span>
+          <div class="problem-name">Family Problem</div>
+        </a>
+
+        <!-- <div class="problem-card reveal"><span class="problem-icon">💼</span>
+          <div class="problem-name">Business Problem</div>
+        </div>
+        <div class="problem-card reveal"><span class="problem-icon">🚀</span>
+          <div class="problem-name">Career Problem</div>
+        </div>
+        <div class="problem-card reveal"><span class="problem-icon">👨‍👩‍👧</span>
+          <div class="problem-name">Family Problem</div>
+        </div>
+        <div class="problem-card reveal"><span class="problem-icon">⚖️</span>
+          <div class="problem-name">Court Case</div>
+        </div>
+        <div class="problem-card reveal"><span class="problem-icon">🌿</span>
+          <div class="problem-name">Health Issues</div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 4. TRUST ===== -->
+  <section id="trust">
+    <div class="container">
+      <div class="trust-grid reveal">
+        <div class="trust-card">
+          <span class="trust-icon">🌟</span>
+          <span class="trust-number" data-count="25">0</span>+
+          <div class="trust-label">Years of Experience</div>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">😊</span>
+          <span class="trust-number" data-count="10000">0</span>+
+          <div class="trust-label">Happy Clients</div>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">🎯</span>
+          <span class="trust-number" data-count="100">0</span>%
+          <div class="trust-label">Accurate Predictions</div>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">🕐</span>
+          <span class="trust-number">24/7</span>
+          <div class="trust-label">Consultation Available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 6. ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-wrap">
+        <div class="about-img-wrap reveal">
+          <div class="about-img-frame">
+            <div class="about-avatar" style="padding: 30px;">
+              <img src="./assets/logo-black-removebg-preview.png" alt="" srcset="">
+            </div>
+            <div class="about-name-tag">Acharya Guruji</div>
+          </div>
+          <div class="about-img-badge">⭐ Gold Certified<br>Vedic Astrologer</div>
+        </div>
+        <div class="about-text reveal">
+          <span class="section-tag">About the Expert</span>
+          <h2 class="section-title">Meet <span>Acharya Guruji</span></h2>
+          <div class="gold-divider"></div>
+          <p class="about-desc">
+            With over 25 years of dedicated practice in Vedic astrology, Acharya Guruji has earned the trust of
+            thousands of clients across India and internationally. Trained in the ancient traditions of Jyotish Shastra,
+            he brings both classical knowledge and practical wisdom to every consultation.
+          </p>
+          <p class="about-desc">
+            Specializing in Love marriage solutions, Black magic removal, Extra Martial affair Solution, Divorce
+            Solution Relation Problem and vashikaran remedies,
+            his guidance has transformed lives and restored harmony in relationships, careers, and families. He is known
+            for
+            his compassionate approach and highly accurate predictions rooted in sacred Vedic texts.
+          </p>
+          <div class="about-feats">
+            <span class="about-feat">🔮 Vedic Astrology</span>
+            <span class="about-feat">📿 Vashikaran Expert</span>
+            <span class="about-feat">🌙 Black Magic Removal</span>
+            <span class="about-feat">💎 Powerful remidies</span>
+            <span class="about-feat">🙏 Mantra & Yantra</span>
+            <span class="about-feat">⭐ 24+ Consultation</span>
+          </div>
+          <div style="margin-top:28px;">
+            <a href="#contact" class="btn btn-gold">Book Consultation →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+   <section id="screenShots">
+    <div class="container">
+      <div class="center reveal">
+        <span class="section-tag">Client Stories</span>
+        <h2 class="section-title">Reviews from clients</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="chatCtnr">
+        <div class="chatElm">
+          <img src="./assets/screenshots/wp-1.jpeg" alt="" srcset="">
+        </div>
+
+        <div class="chatElm">
+          <img src="./assets/screenshots/wp-1.jpeg" alt="" srcset="">
+        </div>
+
+        <div class="chatElm">
+          <img src="./assets/screenshots/wp-1.jpeg" alt="" srcset="">
+        </div>
+
+        <div class="chatElm">
+          <img src="./assets/screenshots/wp-1.jpeg" alt="" srcset="">
+        </div>
+
+        <div class="chatElm">
+          <img src="./assets/screenshots/wp-1.jpeg" alt="" srcset="">
+        </div>
+
+        <div class="chatElm">
+          <img src="./assets/screenshots/wp-1.jpeg" alt="" srcset="">
+        </div>
+      </div>
+      
+
+    </div>
+  </section>
+
+  <!-- ===== VIDEO GALLERY ===== -->
+  <section id="videoGallery">
+    <div class="container">
+      <div class="center reveal">
+        <span class="section-tag">Client Stories</span>
+        <h2 class="section-title">Video Gallery</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="videoContainer">
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/kwGtw_pPK7g?autoplay=1"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/cyrcULhvVnk" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hgo51rIthaE" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/G5izhLgSwoM" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 7. SERVICES ===== -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="center reveal">
+        <span class="section-tag">Our Specializations</span>
+        <h2 class="section-title">Expert <span>Astrology Services</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-sub">Comprehensive Vedic solutions crafted with precision, compassion, and decades of
+          spiritual knowledge.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Love Marriage Specialist -->
+        <div class="service-card reveal">
+          <span class="service-icon">❤️‍🔥</span>
+          <div class="service-title">Love Marriage Specialist</div>
+          <p class="service-desc">Resolve inter-caste or inter-religion marriage opposition. Get family acceptance and
+            blessings for your love union through ancient Vedic rituals.</p>
+          <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20am%20facing%20opposition%20in%20my%20love%20marriage%20and%20need%20your%20expert%20guidance%20to%20get%20family%20acceptance%20and%20resolve%20this%20situation.%20Kindly%20help%20me."
+            target="_blank" rel="noopener noreferrer">
+            <span class="service-link">Consult Now →</span>
+          </a>
+        </div>
+
+        <!-- Black Magic Removal -->
+        <div class="service-card reveal">
+          <span class="service-icon">🛡️</span>
+          <div class="service-title">Black Magic Removal</div>
+          <p class="service-desc">Powerful protection and removal of negative energies, evil eye, and black magic spells
+            that are blocking your progress and happiness.</p>
+          <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20believe%20I%20am%20affected%20by%20black%20magic%20or%20evil%20eye%20and%20it%20is%20severely%20impacting%20my%20life.%20I%20need%20your%20help%20to%20remove%20it%20as%20soon%20as%20possible.%20Please%20guide%20me."
+            target="_blank" rel="noopener noreferrer">
+            <span class="service-link">Consult Now →</span>
+          </a>
+        </div>
+
+        <!-- Vashikaran Specialist -->
+        <div class="service-card reveal">
+          <span class="service-icon">🌀</span>
+          <div class="service-title">Vashikaran Specialist</div>
+          <p class="service-desc">Authentic Vedic vashikaran techniques to resolve love, relationship, and family issues
+            with positive spiritual energy and intention.</p>
+          <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20am%20struggling%20with%20a%20relationship%20issue%20and%20would%20like%20to%20know%20more%20about%20Vashikaran%20remedies.%20Kindly%20provide%20me%20with%20your%20expert%20guidance."
+            target="_blank" rel="noopener noreferrer">
+            <span class="service-link">Consult Now →</span>
+          </a>
+        </div>
+
+        <!-- Marriage Problems -->
+        <div class="service-card reveal">
+          <span class="service-icon">💍</span>
+          <div class="service-title">Marriage Problems</div>
+          <p class="service-desc">Resolve marriage obstacles, family opposition, and compatibility issues through
+            powerful Vedic remedies, kundli analysis, and spiritual guidance for a blessed union.</p>
+          <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20am%20going%20through%20a%20difficult%20marriage%20situation%20and%20would%20like%20to%20seek%20your%20expert%20astrological%20guidance.%20Kindly%20help%20me%20find%20a%20solution.%20Thank%20you."
+            target="_blank" rel="noopener noreferrer">
+            <span class="service-link">Consult Now →</span>
+          </a>
+        </div>
+
+        <!-- Negativity Removal -->
+        <div class="service-card reveal">
+          <span class="service-icon">🧿</span>
+          <div class="service-title">Negativity Removal</div>
+          <p class="service-desc">Remove black magic, evil eye, and negative energies blocking your happiness. Our
+            powerful Vedic rituals cleanse your aura and restore positive energy in your life.</p>
+          <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20have%20been%20experiencing%20negative%20energy%20and%20disturbances%20in%20my%20life%20for%20some%20time%20now.%20I%20would%20like%20your%20help%20to%20cleanse%20and%20remove%20this%20negativity.%20Please%20guide%20me."
+            target="_blank" rel="noopener noreferrer">
+            <span class="service-link">Consult Now →</span>
+          </a>
+        </div>
+
+        <!-- Dispute Problem -->
+        <div class="service-card reveal">
+          <span class="service-icon">⚖️</span>
+          <div class="service-title">Dispute Problem</div>
+          <p class="service-desc">Settle family disputes, property conflicts, and court cases with astrological
+            remedies. Get favorable outcomes through planetary remedies, mantras, and legal timing guidance.</p>
+          <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20am%20currently%20dealing%20with%20a%20serious%20dispute%20and%20need%20your%20astrological%20guidance%20to%20resolve%20it%20peacefully.%20Kindly%20advise%20me%20on%20the%20best%20remedies."
+            target="_blank" rel="noopener noreferrer">
+            <span class="service-link">Consult Now →</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. TESTIMONIALS ===== -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="center reveal">
+        <span class="section-tag">Client Stories</span>
+        <h2 class="section-title">What Our <span>Clients Say</span></h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="testi-track-wrap reveal">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">I was struggling with a love marriage issue for 2 years. After consulting Pandit Ji,
+              the situation resolved within 3 months. My family accepted our relationship. Truly miraculous guidance!
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar">P</div>
+              <div>
+                <div class="testi-name">Priya Sharma</div>
+                <div class="testi-location">Delhi, India</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">My business was at a complete standstill. Pandit Ji identified planetary influences
+              causing the blockage and suggested specific remedies. My business picked up within weeks. Highly
+              recommend!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">R</div>
+              <div>
+                <div class="testi-name">Rajesh Kumar</div>
+                <div class="testi-location">Mumbai, India</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">The kundli matching and marriage consultation was incredibly accurate. The remedies he
+              suggested brought peace to our relationship. We got married happily. Pandit Ji is truly gifted!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">A</div>
+              <div>
+                <div class="testi-name">Anita Verma</div>
+                <div class="testi-location">Bangalore, India</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">I was suffering from negative energies and constant bad luck. His black magic removal
+              rituals completely changed my life. I feel lighter, more positive, and things are finally going well.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">S</div>
+              <div>
+                <div class="testi-name">Suresh Mehta</div>
+                <div class="testi-location">Jaipur, India</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">Lost all hope in my career. Pandit Ji read my kundli and guided me toward the right
+              path. Got promoted and a new opportunity opened up. His predictions were surprisingly accurate!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">K</div>
+              <div>
+                <div class="testi-name">Kavita Singh</div>
+                <div class="testi-location">Pune, India</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-controls">
+        <button class="testi-btn" onclick="testiPrev()">‹</button>
+        <button class="testi-btn" onclick="testiNext()">›</button>
+      </div>
+      <div class="testi-dots" id="testiDots"></div>
+    </div>
+  </section>
+
+  <!-- ===== 9. WHY CHOOSE ===== -->
+  <section id="why" class="section">
+    <div class="container">
+      <div class="center reveal">
+        <span class="section-tag">Our Promise</span>
+        <h2 class="section-title">Why <span>Choose Us</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-sub">We combine ancient wisdom with modern understanding to provide solutions that truly work.
+        </p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-icon-wrap">🔒</div>
+          <div>
+            <div class="why-title">100% Confidential Consultation</div>
+            <div class="why-desc">Your personal matters remain completely private. Every consultation is conducted with
+              full discretion and respect.</div>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon-wrap">⚡</div>
+          <div>
+            <div class="why-title">Quick & Effective Solutions</div>
+            <div class="why-desc">We provide actionable remedies and guidance that produce visible results in the
+              shortest possible time.</div>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon-wrap">📚</div>
+          <div>
+            <div class="why-title">Scientific Vedic Astrology</div>
+            <div class="why-desc">Rooted in authentic Jyotish Shastra, our approach blends classical texts with precise
+              astronomical calculations.</div>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon-wrap">🌍</div>
+          <div>
+            <div class="why-title">Trusted by Thousands</div>
+            <div class="why-desc">Over 10,000 satisfied clients across India and internationally have experienced
+              life-changing results.</div>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon-wrap">🕐</div>
+          <div>
+            <div class="why-title">Available 24/7</div>
+            <div class="why-desc">Life's challenges don't follow a schedule. Our consultation lines are open around the
+              clock for your support.</div>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon-wrap">✨</div>
+          <div>
+            <div class="why-title">Holistic Remedies</div>
+            <div class="why-desc">We prescribe gemstones, mantras, yantras, and rituals tailored specifically to your
+              birth chart and situation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. CTA BANNER ===== -->
+  <section id="cta-banner">
+    <div class="container">
+      <div class="cta-label">✦ Limited Slots Available ✦</div>
+      <h2 class="cta-title">Talk to an Expert<br><span>Astrologer Today</span></h2>
+      <p class="cta-sub">Your first step toward clarity, peace, and lasting positive change starts with a single call.
+      </p>
+      <div class="cta-btns">
+        <a href="tel:+919876839376" style="font-family: sans-serif;" class="btn btn-call">📞 Call Now: +91 98768 39376 </a>
+        <a href="https://wa.me/919876839376https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏"
+          target="_blank" target="_blank" class="btn btn-wa">
+          <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i>
+          WhatsApp us now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11. CONTACT FORM ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-info reveal">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Book Your <span>Consultation</span></h2>
+          <div class="gold-divider"></div>
+          <p>Fill in the form and our team will reach out to schedule your personalized astrology consultation at the
+            earliest. All queries are handled with complete confidentiality.</p>
+          <div class="contact-detail">
+            <div class="cd-icon">📞</div>
+            <div>
+              <div class="cd-label">Phone / WhatsApp</div>
+              <div class="cd-value" style="font-family: sans-serif;">+91 98768 39376</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="cd-icon">📧</div>
+            <div>
+              <div class="cd-label">Email</div>
+              <div class="cd-value"> genuineastrologeruk@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="cd-icon">📍</div>
+            <div>
+              <div class="cd-label">Location</div>
+              <div class="cd-value">Harrow, london, UK (Online Available)</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="cd-icon">🕐</div>
+            <div>
+              <div class="cd-label">Availability</div>
+              <div class="cd-value">24 Hours / 7 Days a Week</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-card reveal">
+          <h3>✨ Free Consultation Request</h3>
+          <form id="consultForm" action="https://formsubmit.co/genuineastrologeruk@gmail.com" method="POST"
+            onsubmit="handleSubmit(event)">
+
+            <input type="hidden" name="_subject" value="New Consultation Request">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-group">
+              <label>Your Full Name *</label>
+              <input type="text" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="date" name="dob">
+            </div>
+
+            <div class="form-group">
+              <label>Type of Problem *</label>
+              <select name="problem" required style="background: #0d0b1a;">
+                <option value="" disabled selected>Select your concern</option>
+                <option>Love & Relationship</option>
+                <option>Marriage Issues</option>
+                <option>Career & Business</option>
+                <option>Family Problems</option>
+                <option>Health Issues</option>
+                <option>Financial Problems</option>
+                <option>Black Magic / Evil Eye</option>
+                <option>Court Case</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Describe Your Problem</label>
+              <textarea name="message" placeholder="Briefly describe what you are facing..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold form-submit" id="consultFormBtn">
+              🔮 Submit Consultation Request
+            </button>
+
+            <p class="form-privacy">🔒 Your information is 100% confidential and secure.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map-section" class="section" style="background: black; padding-top: 5px;">
+    <div class="container">
+
+      <div class="center reveal">
+        <span class="section-tag">Meet us</span>
+        <h2 class="section-title">Visit <span>Our Astrology Center</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-sub">We welcome you to our spiritual space in Harrow, London for personal consultations and
+          guidance.
+      </div>
+      <div class="mapmain-container">
+        <!-- <div class="map-text">
+          <div class="info">
+            <p><strong>📍 Location:</strong> Harrow, London, UK</p>
+            <p><strong>📞 Phone:</strong> +44 7917 739589</p>
+            <p><strong>🕒 Hours:</strong> Mon - Sat, 10:00 AM - 7:00 PM</p>
+          </div>
+        </div> -->
+
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps?q=Harrow,London&output=embed" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="display:inline-flex;">
+            <span class="logo-icon">
+              <img src="./assets/logo-main.png" alt="" srcset="">
+            </span> Genuine Astro Guide
+          </a>
+          <p>India's most trusted Vedic astrology consultation service, bringing clarity and positive transformation to
+            thousands of lives through the ancient wisdom of Jyotish Shastra.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Book Consultation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Love Marriage</a></li>
+            <li><a href="#services">Black Magic Removal</a></li>
+            <li><a href="#services">Marriage Problem Solutions</a></li>
+            <li><a href="#services">Negativity Removal</a></li>
+            <li><a href="#services">Dispute Solutions</a></li>
+            <li><a href="#services">Vashikaran Specialist</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item" style="font-family: sans-serif;"><span>📞</span><span>+91-98768-39376</span></div>
+          <div class="footer-contact-item" style="font-family: sans-serif;"><span>💬</span><span>WhatsApp: +91-98768-39376</span></div>
+          <div class="footer-contact-item"><span>📧</span><span> genuineastrologeruk@gmail.com</span></div>
+          <div class="footer-socials">
+            <a href="tel:+919876839376" class="footer-social">
+              <i class="fa-solid fa-circle-user" style="color: #0A66C2;"></i>
+            </a>
+            <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏"
+              target="_blank" class="footer-social">
+              <i class="fa-brands fa-square-whatsapp" style="color: #25D366;"></i>
+            </a>
+            <a href="https://www.instagram.com/genuineastroguide/" target="_blank" class="footer-social">
+              <i class="fa-brands fa-square-instagram" style=" background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61577192326825" target="_blank" class="footer-social">
+              <i class="fa-brands  fa-square-facebook" style=" color: #1877F2;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Genuine Astro Guide. All rights reserved.</p>
+        <!-- <p>Made by Kunal Shroff</p>
+        <div class="footer-socials">
+          <a href="tel:+919122874046" class="footer-social">
+            <i class="fa-solid fa-circle-user"></i>
+          </a>
+          <a href="https://wa.me/919122874046?text=Hello Kunal i have an enuiry regarding website development"
+            target="_blank" class="footer-social">
+            <i class="fa-brands fa-square-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/kunal._067?igsh=c3hmcGlzeW9qYXE5" target="_blank" class="footer-social">
+            <i class="fa-brands fa-square-instagram"></i>
+          </a>
+          <a href="www.linkedin.com/in/itz-kunal-shroff" class="footer-social">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div> -->
+      </div>
+  </footer>
+
+  <!-- FLOATING WA BUTTON -->
+  <div class="float-ct">
+    <a href="tel:+919876839376" target="_blank" target="_blank" class="float-wa" id="float-ca" title="Chat on WhatsApp">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20your%20guidance%20for%20my%20problem.%20Please%20help%20me.%20🙏"
+      target="_blank" target="_blank" class="float-wa" title="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-box">
+      <div class="modal-icon">🎉</div>
+      <h3>Request Received!</h3>
+      <p>Thank you for reaching out. Our astrology expert will contact you within the next 30 minutes. For immediate
+        assistance, call us directly.</p>
+      <a href="tel:+919876839376" class="btn btn-call" style="width:100%;justify-content:center;margin-bottom:12px;">📞
+        Call Now</a>
+      <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

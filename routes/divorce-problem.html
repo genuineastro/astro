@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divorce Problem Solution — Stop Divorce | Astro Guru</title>
+<meta name="description" content="Stop your divorce and save your marriage with powerful Vedic astrology remedies. World Famous Astrologer Pandit Ji has helped thousands of couples avoid separation and rebuild their relationship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#050508;--deep:#0d0b1a;--purple:#1a0d2e;--violet:#2d1054;
+  --gold:#c9a84c;--gold-l:#f0d080;--gold-p:#f8ebb0;
+  --white:#f5f0ff;--muted:#a89dc0;
+  --card:rgba(255,255,255,0.035);--border:rgba(201,168,76,0.18);
+  --tr:0.32s cubic-bezier(0.4,0,0.2,1);
+  --head:'Cinzel',serif;--body:'Raleway',sans-serif;
+  --accent:#0d9488;--accent-g:rgba(13,148,136,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.5;}
+.sp-nav{position:sticky;top:0;z-index:900;background:rgba(5,5,8,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 clamp(20px,4vw,48px);}
+.sp-nav-inner{max-width:1180px;margin:0 auto;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.sp-logo{font-family:var(--head);font-size:1.35rem;font-weight:900;color:var(--gold);display:flex;align-items:center;gap:9px;}
+.sp-logo-mark{width:32px;height:32px;background:radial-gradient(circle at 40% 40%,var(--gold-l),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#1a0a00;box-shadow:0 0 12px rgba(201,168,76,0.4);}
+.sp-nav-links{display:flex;gap:4px;align-items:center;}
+.sp-nav-links a{font-size:0.82rem;color:var(--muted);padding:7px 12px;border-radius:6px;transition:var(--tr);}
+.sp-nav-links a:hover{color:var(--gold);background:rgba(201,168,76,0.07);}
+.sp-nav-cta{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:var(--gold);color:#1a0a00;border-radius:8px;font-family:var(--body);font-size:0.82rem;font-weight:700;transition:var(--tr);}
+.sp-nav-cta:hover{background:var(--gold-l);}
+.sp-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.sp-hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);border-radius:2px;}
+.sp-mobile-nav{display:none;flex-direction:column;padding:12px 20px 16px;gap:2px;border-top:1px solid var(--border);background:rgba(5,5,8,0.97);}
+.sp-mobile-nav.open{display:flex;}
+.sp-mobile-nav a{padding:11px 14px;font-size:0.9rem;color:var(--muted);border-radius:7px;}
+.sp-mobile-nav a:hover{background:rgba(201,168,76,0.07);color:var(--gold);}
+.sp-breadcrumb{padding:14px clamp(20px,4vw,48px);border-bottom:1px solid rgba(201,168,76,0.08);position:relative;z-index:2;}
+.sp-breadcrumb-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:0.75rem;color:var(--muted);}
+.sp-breadcrumb a{color:var(--muted);transition:color var(--tr);}
+.sp-breadcrumb a:hover{color:var(--gold);}
+.sp-breadcrumb-sep{opacity:0.4;}
+.sp-breadcrumb-cur{color:var(--gold);}
+.sp-hero{padding:clamp(64px,8vw,110px) clamp(20px,4vw,48px) clamp(56px,6vw,90px);position:relative;z-index:2;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(13,148,136,0.1) 0%,transparent 65%);text-align:center;overflow:hidden;}
+.sp-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(13,148,136,0.1);border:1px solid rgba(13,148,136,0.3);border-radius:50px;font-family:var(--head);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#2dd4bf;margin-bottom:22px;animation:sp-fade-up 0.6s ease both;}
+.sp-hero-icon{font-size:clamp(3.5rem,7vw,5.5rem);margin-bottom:18px;animation:sp-fade-up 0.6s 0.1s ease both;filter:drop-shadow(0 0 28px rgba(13,148,136,0.4));}
+.sp-hero h1{font-family:var(--head);font-size:clamp(2.2rem,5vw,4.2rem);font-weight:900;line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;animation:sp-fade-up 0.6s 0.15s ease both;}
+.sp-hero h1 span{background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sp-hero-sub{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--muted);max-width:600px;margin:0 auto 36px;line-height:1.75;font-weight:300;animation:sp-fade-up 0.6s 0.2s ease both;}
+.sp-hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:sp-fade-up 0.6s 0.28s ease both;}
+.sp-hero-orbit{position:absolute;border-radius:50%;border:1px solid rgba(13,148,136,0.05);pointer-events:none;}
+.sp-hero-orbit-1{width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);animation:sp-orbit 40s linear infinite;}
+.sp-hero-orbit-2{width:750px;height:750px;top:50%;left:50%;transform:translate(-50%,-50%);animation:sp-orbit 65s linear infinite reverse;}
+@keyframes sp-orbit{to{transform:translate(-50%,-50%) rotate(360deg);}}
+@keyframes sp-fade-up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.sp-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-family:var(--body);font-size:0.9rem;font-weight:600;cursor:pointer;border:none;transition:var(--tr);text-decoration:none;}
+.sp-btn-wa{background:linear-gradient(135deg,#25d366,#128c5e);color:#fff;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
+.sp-btn-wa:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(37,211,102,0.5);}
+.sp-btn-call{background:linear-gradient(135deg,#e53935,#b71c1c);color:#fff;box-shadow:0 4px 20px rgba(229,57,53,0.3);}
+.sp-btn-call:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(229,57,53,0.5);}
+.sp-btn-gold{background:linear-gradient(135deg,var(--gold),#e8c060,var(--gold));background-size:200%;color:#1a0a00;font-weight:700;box-shadow:0 4px 20px rgba(201,168,76,0.3);}
+.sp-btn-gold:hover{background-position:right;transform:translateY(-2px);}
+.sp-section{padding:clamp(64px,7vw,100px) clamp(20px,4vw,48px);position:relative;z-index:2;}
+.sp-container{max-width:1180px;margin:0 auto;}
+.sp-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--head);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid var(--border);border-radius:50px;padding:5px 14px;margin-bottom:14px;}
+.sp-tag::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;}
+.sp-h2{font-family:var(--head);font-size:clamp(1.7rem,3vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:14px;}
+.sp-h2 em{font-style:italic;color:var(--gold);}
+.sp-divider{width:55px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px 0 28px;border-radius:2px;}
+.sp-lead{font-size:1.02rem;color:var(--muted);line-height:1.8;font-weight:300;}
+.center{text-align:center;}
+.center .sp-divider{margin-left:auto;margin-right:auto;}
+.sp-trust{background:linear-gradient(135deg,rgba(45,16,84,0.6),rgba(13,11,26,0.8));border:1px solid var(--border);border-radius:14px;padding:28px 32px;}
+.sp-trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.sp-trust-item{text-align:center;padding:8px 16px;border-right:1px solid rgba(201,168,76,0.1);}
+.sp-trust-item:last-child{border-right:none;}
+.sp-trust-num{font-family:var(--head);font-size:1.9rem;font-weight:900;color:var(--gold);line-height:1;}
+.sp-trust-label{font-size:0.75rem;color:var(--muted);margin-top:5px;}
+.sp-solutions-bg{background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(45,16,84,0.3) 0%,transparent 70%),var(--deep);}
+.sp-sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+.sp-sol-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 22px;transition:var(--tr);position:relative;overflow:hidden;}
+.sp-sol-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform var(--tr);}
+.sp-sol-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.4);border-color:rgba(201,168,76,0.4);}
+.sp-sol-card:hover::before{transform:scaleX(1);}
+.sp-sol-icon{font-size:2rem;margin-bottom:14px;display:block;}
+.sp-sol-title{font-family:var(--head);font-size:0.95rem;font-weight:700;color:var(--gold-p);margin-bottom:8px;}
+.sp-sol-desc{font-size:0.83rem;color:var(--muted);line-height:1.7;}
+.sp-two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.sp-two-col-rev{direction:rtl;}
+.sp-two-col-rev>*{direction:ltr;}
+.sp-steps{display:flex;flex-direction:column;gap:0;margin-top:28px;}
+.sp-step{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(201,168,76,0.08);}
+.sp-step:last-child{border-bottom:none;}
+.sp-step-num{width:38px;height:38px;flex-shrink:0;background:linear-gradient(135deg,var(--violet),var(--purple));border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:0.8rem;color:var(--gold);font-weight:700;}
+.sp-step-title{font-weight:600;font-size:0.92rem;color:var(--white);margin-bottom:4px;}
+.sp-step-desc{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+.sp-visual-card{background:linear-gradient(145deg,var(--violet),var(--deep));border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden;}
+.sp-visual-card::before{content:'';position:absolute;inset:-40%;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 65%);pointer-events:none;}
+.sp-visual-icon{font-size:4rem;text-align:center;display:block;margin-bottom:20px;}
+.sp-visual-list{display:flex;flex-direction:column;gap:10px;}
+.sp-visual-list-item{display:flex;align-items:center;gap:10px;font-size:0.86rem;color:var(--muted);}
+.sp-visual-list-item::before{content:'✦';color:var(--gold);font-size:0.6rem;flex-shrink:0;}
+/* urgent alert box */
+.sp-alert{background:linear-gradient(135deg,rgba(220,38,38,0.12),rgba(220,38,38,0.06));border:1px solid rgba(220,38,38,0.3);border-radius:14px;padding:24px 28px;margin-bottom:28px;display:flex;gap:16px;align-items:flex-start;}
+.sp-alert-icon{font-size:1.8rem;flex-shrink:0;}
+.sp-alert-title{font-family:var(--head);font-size:0.9rem;color:#fca5a5;margin-bottom:6px;}
+.sp-alert-text{font-size:0.83rem;color:var(--muted);line-height:1.6;}
+.sp-faq-list{display:flex;flex-direction:column;gap:10px;margin-top:32px;}
+.sp-faq-item{background:var(--card);border:1px solid var(--border);border-radius:11px;overflow:hidden;}
+.sp-faq-item.open{border-color:rgba(201,168,76,0.4);}
+.sp-faq-q{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 20px;cursor:pointer;font-size:0.9rem;font-weight:500;color:var(--white);}
+.sp-faq-toggle{width:26px;height:26px;background:rgba(201,168,76,0.1);border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--gold);flex-shrink:0;transition:var(--tr);}
+.sp-faq-item.open .sp-faq-toggle{background:var(--gold);color:#1a0a00;transform:rotate(45deg);}
+.sp-faq-a{display:none;padding:0 20px 18px;font-size:0.85rem;color:var(--muted);line-height:1.7;}
+.sp-faq-item.open .sp-faq-a{display:block;}
+.sp-cta-banner{background:linear-gradient(135deg,rgba(45,16,84,0.9),rgba(13,5,26,0.95),rgba(45,16,84,0.9));border:1px solid var(--border);border-radius:20px;padding:clamp(40px,5vw,64px);text-align:center;position:relative;overflow:hidden;}
+.sp-cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(13,148,136,0.07) 0%,transparent 65%);pointer-events:none;}
+.sp-cta-banner h2{font-family:var(--head);font-size:clamp(1.7rem,3vw,2.5rem);font-weight:900;color:var(--white);margin-bottom:12px;}
+.sp-cta-banner h2 span{color:var(--gold);}
+.sp-cta-banner p{color:var(--muted);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
+.sp-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.sp-footer{background:rgba(5,5,8,0.98);border-top:1px solid var(--border);padding:36px clamp(20px,4vw,48px);position:relative;z-index:2;}
+.sp-footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.sp-footer-logo{font-family:var(--head);font-size:1.1rem;color:var(--gold);}
+.sp-footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.sp-footer-links a{font-size:0.8rem;color:var(--muted);transition:color var(--tr);}
+.sp-footer-links a:hover{color:var(--gold);}
+.sp-footer-copy{font-size:0.75rem;color:rgba(168,157,192,0.4);}
+.sp-float-wa{position:fixed;bottom:26px;right:26px;z-index:9000;width:56px;height:56px;background:linear-gradient(135deg,#25d366,#128c5e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(37,211,102,0.5);animation:sp-float-pulse 3s ease-in-out infinite;text-decoration:none;color:#fff;}
+@keyframes sp-float-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.5),0 0 0 0 rgba(37,211,102,0.4);}50%{box-shadow:0 6px 28px rgba(37,211,102,0.6),0 0 0 12px rgba(37,211,102,0);}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:0.1s;}
+.reveal-d2{transition-delay:0.18s;}
+.reveal-d3{transition-delay:0.26s;}
+@media(max-width:860px){
+  .sp-nav-links,.sp-nav-cta{display:none;}
+  .sp-hamburger{display:flex;}
+  .sp-trust-grid{grid-template-columns:repeat(2,1fr);}
+  .sp-trust-item:nth-child(2){border-right:none;}
+  .sp-trust-item:nth-child(3){border-top:1px solid rgba(201,168,76,0.1);}
+  .sp-trust-item:nth-child(4){border-top:1px solid rgba(201,168,76,0.1);border-right:none;}
+  .sp-two-col{grid-template-columns:1fr;gap:36px;}
+  .sp-two-col-rev{direction:ltr;}
+  .sp-sol-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:560px){.sp-sol-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<nav class="sp-nav">
+  <div class="sp-nav-inner">
+    <a href="index.html" class="sp-logo"><span class="sp-logo-mark">♏</span>Astro Guru</a>
+    <div class="sp-nav-links">
+      <a href="index.html">Home</a><a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a><a href="index.html#contact">Contact</a>
+    </div>
+    <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20help%20to%20stop%20my%20divorce.%20Please%20guide%20me." target="_blank" class="sp-nav-cta">💬 WhatsApp Now</a>
+    <div class="sp-hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </div>
+  <div class="sp-mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a><a href="index.html#services">Services</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="https://wa.me/919876839376" target="_blank" style="color:var(--gold);font-weight:600;">💬 WhatsApp Now</a>
+  </div>
+</nav>
+
+<div class="sp-breadcrumb"><div class="sp-breadcrumb-inner">
+  <a href="index.html">Home</a><span class="sp-breadcrumb-sep">›</span>
+  <a href="index.html#services">Services</a><span class="sp-breadcrumb-sep">›</span>
+  <span class="sp-breadcrumb-cur">Divorce Problem Solution</span>
+</div></div>
+
+<section class="sp-hero">
+  <div class="sp-hero-orbit sp-hero-orbit-1"></div>
+  <div class="sp-hero-orbit sp-hero-orbit-2"></div>
+  <div class="sp-hero-badge">💔 Stop Divorce Specialist</div>
+  <div class="sp-hero-icon">💔</div>
+  <h1>Stop Divorce & <span>Save Your Marriage</span></h1>
+  <p class="sp-hero-sub">Facing separation or divorce? It is not too late. Pandit Ji has saved thousands of marriages on the brink of divorce through powerful Vedic astrology and ancient spiritual remedies.</p>
+  <div class="sp-hero-btns">
+    <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20my%20marriage%20is%20heading%20towards%20divorce%20and%20I%20desperately%20need%20your%20help%20to%20save%20it.%20Please%20guide%20me%20with%20the%20right%20remedies." target="_blank" class="sp-btn sp-btn-wa">💬 WhatsApp Consultation</a>
+    <a href="tel:+919876839376" class="sp-btn sp-btn-call">📞 Call Now — Urgent Help</a>
+  </div>
+</section>
+
+<section class="sp-section" style="padding-top:0;padding-bottom:0;">
+  <div class="sp-container">
+    <div class="sp-trust reveal">
+      <div class="sp-trust-grid">
+        <div class="sp-trust-item"><div class="sp-trust-num">25+</div><div class="sp-trust-label">Years Experience</div></div>
+        <div class="sp-trust-item"><div class="sp-trust-num">2000+</div><div class="sp-trust-label">Divorces Prevented</div></div>
+        <div class="sp-trust-item"><div class="sp-trust-num">98%</div><div class="sp-trust-label">Success Rate</div></div>
+        <div class="sp-trust-item"><div class="sp-trust-num">24/7</div><div class="sp-trust-label">Emergency Help</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sp-section">
+  <div class="sp-container">
+    <div class="sp-two-col">
+      <div class="reveal">
+        <div class="sp-alert">
+          <div class="sp-alert-icon">⚠️</div>
+          <div>
+            <div class="sp-alert-title">Act Immediately — Time Is Critical</div>
+            <div class="sp-alert-text">The sooner you seek help, the stronger the remedy works. Do not wait until it is too late. Contact Pandit Ji today for urgent assistance.</div>
+          </div>
+        </div>
+        <span class="sp-tag">Divorce Specialist</span>
+        <h2 class="sp-h2">Your Marriage Can<br><em>Still Be Saved</em></h2>
+        <div class="sp-divider"></div>
+        <p class="sp-lead" style="margin-bottom:18px;">Divorce is one of the most painful experiences a person can face. But in Vedic astrology, separation is often caused by planetary afflictions — and what planets cause, planets can also heal.</p>
+        <p class="sp-lead">Whether you want to stop a divorce, reconcile after separation, or win back your partner's heart — Pandit Ji has the spiritual knowledge and proven remedies to restore your marriage.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20my%20marriage%20is%20heading%20towards%20divorce%20and%20I%20desperately%20need%20your%20help%20to%20save%20it." target="_blank" class="sp-btn sp-btn-gold">Get Urgent Help Now →</a>
+        </div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="sp-visual-card">
+          <span class="sp-visual-icon">🤝</span>
+          <h3 style="font-family:var(--head);font-size:1rem;color:var(--gold);margin-bottom:16px;text-align:center;">Situations We Handle</h3>
+          <div class="sp-visual-list">
+            <div class="sp-visual-list-item">Divorce papers already filed or served</div>
+            <div class="sp-visual-list-item">Spouse has left the home</div>
+            <div class="sp-visual-list-item">Separation due to affairs or betrayal</div>
+            <div class="sp-visual-list-item">Constant fighting with no resolution</div>
+            <div class="sp-visual-list-item">Spouse wants divorce but you don't</div>
+            <div class="sp-visual-list-item">In-laws pressuring for separation</div>
+            <div class="sp-visual-list-item">Emotional disconnect and lack of love</div>
+            <div class="sp-visual-list-item">Court proceedings already underway</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sp-section sp-solutions-bg">
+  <div class="sp-container">
+    <div class="center reveal">
+      <span class="sp-tag">Our Remedies</span>
+      <h2 class="sp-h2">Powerful Divorce Prevention <em>Solutions</em></h2>
+      <div class="sp-divider"></div>
+    </div>
+    <div class="sp-sol-grid">
+      <div class="sp-sol-card reveal reveal-d1">
+        <span class="sp-sol-icon">🔮</span>
+        <div class="sp-sol-title">Marriage Reconciliation Mantra</div>
+        <p class="sp-sol-desc">Specific Vedic mantras to rebuild emotional connection and rekindle love between separated spouses.</p>
+      </div>
+      <div class="sp-sol-card reveal reveal-d2">
+        <span class="sp-sol-icon">🧿</span>
+        <div class="sp-sol-title">Anti-Divorce Yantra</div>
+        <p class="sp-sol-desc">Sacred energised yantra placed in the home to create a protective shield around the marriage and stop negative forces.</p>
+      </div>
+      <div class="sp-sol-card reveal reveal-d3">
+        <span class="sp-sol-icon">🕯️</span>
+        <div class="sp-sol-title">Shiva-Parvati Puja</div>
+        <p class="sp-sol-desc">Powerful puja dedicated to the eternal divine couple to restore love, trust, and commitment in your marriage.</p>
+      </div>
+      <div class="sp-sol-card reveal reveal-d1">
+        <span class="sp-sol-icon">🌀</span>
+        <div class="sp-sol-title">Vashikaran for Spouse</div>
+        <p class="sp-sol-desc">Authentic Vedic vashikaran to soften a partner's heart and rebuild the desire to stay in the marriage.</p>
+      </div>
+      <div class="sp-sol-card reveal reveal-d2">
+        <span class="sp-sol-icon">💎</span>
+        <div class="sp-sol-title">Planetary Remedies</div>
+        <p class="sp-sol-desc">Gemstones and colour therapy prescribed based on your birth chart to strengthen the 7th house of marriage.</div>
+      </div>
+      <div class="sp-sol-card reveal reveal-d3">
+        <span class="sp-sol-icon">🌟</span>
+        <div class="sp-sol-title">Kundli Dosha Removal</div>
+        <p class="sp-sol-desc">Identify and neutralise Manglik dosha, Naadi dosha, and other planetary afflictions that are causing the divorce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sp-section">
+  <div class="sp-container">
+    <div class="sp-two-col sp-two-col-rev">
+      <div class="reveal reveal-d1">
+        <div class="sp-visual-card" style="background:linear-gradient(145deg,rgba(13,148,136,0.1),var(--deep));">
+          <span class="sp-visual-icon">💑</span>
+          <h3 style="font-family:var(--head);font-size:0.95rem;color:var(--gold-p);margin-bottom:14px;text-align:center;">After Our Remedies</h3>
+          <div class="sp-visual-list">
+            <div class="sp-visual-list-item">Spouse will change their mind about divorce</div>
+            <div class="sp-visual-list-item">Communication will reopen naturally</div>
+            <div class="sp-visual-list-item">Old love and affection will return</div>
+            <div class="sp-visual-list-item">Court proceedings will resolve favourably</div>
+            <div class="sp-visual-list-item">Family interference will reduce</div>
+            <div class="sp-visual-list-item">Marriage will be stronger than before</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="sp-tag">Consultation Process</span>
+        <h2 class="sp-h2">How We <em>Stop Your Divorce</em></h2>
+        <div class="sp-divider"></div>
+        <div class="sp-steps">
+          <div class="sp-step">
+            <div class="sp-step-num">01</div>
+            <div><div class="sp-step-title">Emergency Consultation</div><div class="sp-step-desc">Contact Pandit Ji immediately via WhatsApp or call. Share the full situation including how long the problem has been occurring.</div></div>
+          </div>
+          <div class="sp-step">
+            <div class="sp-step-num">02</div>
+            <div><div class="sp-step-title">Horoscope Analysis</div><div class="sp-step-desc">Both kundlis are analysed to identify planetary causes of the marriage breakdown and the most powerful remedies.</div></div>
+          </div>
+          <div class="sp-step">
+            <div class="sp-step-num">03</div>
+            <div><div class="sp-step-title">Urgent Remedy Plan</div><div class="sp-step-desc">Fast-acting mantras, rituals, and emergency yantras are prescribed to immediately begin countering the negative energies.</div></div>
+          </div>
+          <div class="sp-step">
+            <div class="sp-step-num">04</div>
+            <div><div class="sp-step-title">Ongoing Support</div><div class="sp-step-desc">Pandit Ji monitors progress closely and provides continued support until the divorce is fully stopped and reconciliation is achieved.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sp-section sp-solutions-bg">
+  <div class="sp-container">
+    <div class="center reveal">
+      <span class="sp-tag">Common Questions</span>
+      <h2 class="sp-h2">Frequently Asked <em>Questions</em></h2>
+      <div class="sp-divider"></div>
+    </div>
+    <div class="sp-faq-list" style="max-width:780px;margin:0 auto;">
+      <div class="sp-faq-item reveal" onclick="toggleFaq(this)">
+        <div class="sp-faq-q">Can divorce be stopped even if papers are already filed?<span class="sp-faq-toggle">+</span></div>
+        <div class="sp-faq-a">Yes. Even when divorce proceedings have begun, Pandit Ji has successfully helped couples reconcile. The sooner you reach out, the more powerful the remedies. Many couples have withdrawn divorce cases after receiving Pandit Ji's guidance.</div>
+      </div>
+      <div class="sp-faq-item reveal" onclick="toggleFaq(this)">
+        <div class="sp-faq-q">My spouse has completely stopped talking to me. Can this be fixed?<span class="sp-faq-toggle">+</span></div>
+        <div class="sp-faq-a">This is one of the most common situations Pandit Ji handles. Through specific vashikaran and reconciliation mantras, the emotional barrier between spouses can be dissolved and communication naturally restored.</div>
+      </div>
+      <div class="sp-faq-item reveal" onclick="toggleFaq(this)">
+        <div class="sp-faq-q">What if my spouse is involved with someone else?<span class="sp-faq-toggle">+</span></div>
+        <div class="sp-faq-a">Third-party interference is a major cause of divorce and is something Pandit Ji has extensive experience resolving. Targeted remedies remove the third-party influence and strengthen the bond between husband and wife.</div>
+      </div>
+      <div class="sp-faq-item reveal" onclick="toggleFaq(this)">
+        <div class="sp-faq-q">How quickly can you help in an urgent divorce situation?<span class="sp-faq-toggle">+</span></div>
+        <div class="sp-faq-a">Pandit Ji offers emergency consultations and can begin working on urgent cases immediately. Fast-acting remedies can show initial positive changes within 3–7 days in critical situations.</div>
+      </div>
+      <div class="sp-faq-item reveal" onclick="toggleFaq(this)">
+        <div class="sp-faq-q">Is everything I share kept confidential?<span class="sp-faq-toggle">+</span></div>
+        <div class="sp-faq-a">Absolutely. All consultations are 100% private and confidential. Your situation, personal details, and family matters are never discussed or shared with any third party under any circumstances.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sp-section">
+  <div class="sp-container">
+    <div class="sp-cta-banner reveal">
+      <span class="sp-tag" style="margin-bottom:16px;">Act Now — Every Hour Counts</span>
+      <h2>Don't Let Your Marriage End — <span>Fight For It</span></h2>
+      <p>Thousands of couples have saved their marriages with Pandit Ji's help. You can too. Contact us right now for a free, urgent, confidential consultation.</p>
+      <div class="sp-cta-btns">
+        <a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20my%20marriage%20is%20heading%20towards%20divorce%20and%20I%20desperately%20need%20your%20help%20to%20save%20it.%20Please%20guide%20me%20with%20the%20right%20remedies." target="_blank" class="sp-btn sp-btn-wa" style="font-size:1rem;padding:16px 32px;">💬 WhatsApp Pandit Ji Now</a>
+        <a href="tel:+919876839376" class="sp-btn sp-btn-call" style="font-size:1rem;padding:16px 32px;">📞 Call for Urgent Help</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="sp-footer">
+  <div class="sp-footer-inner">
+    <div class="sp-footer-logo">⭐ Astro Guru</div>
+    <div class="sp-footer-links">
+      <a href="index.html">Home</a>
+      <a href="love-problem.html">Love Problem</a>
+      <a href="marriage-problem.html">Marriage Problem</a>
+      <a href="divorce-problem.html">Divorce Problem</a>
+      <a href="love-spell.html">Love Spell</a>
+    </div>
+    <div class="sp-footer-copy">© 2024 Astro Guru. All rights reserved.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919876839376?text=Hello%20Pandit%20Ji%2C%20I%20need%20urgent%20help%20to%20stop%20my%20divorce." target="_blank" class="sp-float-wa">💬</a>
+
+<script>
+(function(){var c=document.getElementById('stars'),ctx=c.getContext('2d'),stars=[];function resize(){c.width=window.innerWidth;c.height=window.innerHeight;init();}function init(){stars=[];var n=Math.floor(c.width*c.height/6000);for(var i=0;i<n;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.3+0.2,t:Math.random()*Math.PI*2,s:Math.random()*0.4+0.1});}function draw(){ctx.clearRect(0,0,c.width,c.height);var now=Date.now()/1000;stars.forEach(function(s){var a=0.3+0.7*(0.5+0.5*Math.sin(now*s.s+s.t));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,245,210,'+a+')';ctx.fill();});requestAnimationFrame(draw);}window.addEventListener('resize',resize);resize();draw();})();
+var obs=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('visible');obs.unobserve(n.target);}});},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+function toggleFaq(item){var open=item.classList.contains('open');document.querySelectorAll('.sp-faq-item').forEach(function(i){i.classList.remove('open');});if(!open)item.classList.add('open');}
+</script>
+</body>
+</html>
