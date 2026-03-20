@@ -1,5 +1,38 @@
-/* ========== CSS VARIABLES ========== */
+/* ============================================================
+   ASTRO GURU — MAIN STYLESHEET
+   Structure:
+   1.  CSS Variables (Design Tokens)
+   2.  Reset & Base
+   3.  Starfield Canvas
+   4.  Utility Classes
+   5.  Buttons
+   6.  Gold Divider
+   7.  Top Bar
+   8.  Navigation
+   9.  Hero Section
+   10. Trust Section
+   11. Problems Section & Animations
+   12. About Section
+   13. Services Section
+   14. Testimonials Section
+   15. Why Choose Us Section
+   16. CTA Banner
+   17. Contact Form
+   18. Footer
+   19. Success Modal
+   20. Scroll Reveal Animation
+   21. Floating Action Buttons
+   22. Responsive Breakpoints
+   ============================================================ */
+
+
+/* ============================================================
+   1. CSS VARIABLES — Design Tokens
+   All colours, fonts, spacing and transitions in one place.
+   Edit here to retheme the entire site instantly.
+   ============================================================ */
 :root {
+    /* Colour palette */
     --black: #050508;
     --deep: #0d0b1a;
     --purple: #1a0d2e;
@@ -10,15 +43,27 @@
     --glow: #7c3aed;
     --white: #f5f0ff;
     --muted: #a89dc0;
+
+    /* Component colours */
     --card-bg: rgba(255, 255, 255, 0.035);
     --border: rgba(201, 168, 76, 0.18);
+
+    /* Typography */
     --font-head: 'Cinzel', serif;
     --font-body: 'Raleway', sans-serif;
+
+    /* Spacing & shape */
     --radius: 12px;
+
+    /* Global transition */
     --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ========== RESET & BASE ========== */
+
+/* ============================================================
+   2. RESET & BASE STYLES
+   Normalise browser defaults and set global body styles.
+   ============================================================ */
 *,
 *::before,
 *::after {
@@ -50,7 +95,12 @@ a {
     color: inherit;
 }
 
-/* ========== STARFIELD ========== */
+
+/* ============================================================
+   3. STARFIELD CANVAS
+   Fixed background canvas rendered via JS starfield animation.
+   Sits behind all content at z-index 0.
+   ============================================================ */
 #stars-canvas {
     position: fixed;
     inset: 0;
@@ -59,7 +109,13 @@ a {
     opacity: 0.55;
 }
 
-/* ========== UTILITY ========== */
+
+/* ============================================================
+   4. UTILITY CLASSES
+   Reusable layout helpers, section wrappers, and text tags.
+   ============================================================ */
+
+/* Max-width content wrapper */
 .container {
     max-width: 1180px;
     margin: 0 auto;
@@ -68,12 +124,14 @@ a {
     z-index: 2;
 }
 
+/* Standard section vertical spacing */
 .section {
     padding: 88px 0;
     position: relative;
     z-index: 2;
 }
 
+/* Small pill label above section headings */
 .section-tag {
     display: inline-block;
     font-family: var(--font-head);
@@ -88,6 +146,7 @@ a {
     margin-bottom: 14px;
 }
 
+/* Primary section heading */
 .section-title {
     font-family: var(--font-head);
     font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -97,10 +156,12 @@ a {
     margin-bottom: 14px;
 }
 
+/* Gold accent word inside section titles */
 .section-title span {
     color: var(--gold);
 }
 
+/* Section description text beneath the heading */
 .section-sub {
     color: var(--muted);
     font-size: 1.05rem;
@@ -108,15 +169,24 @@ a {
     margin: 0 auto 50px;
 }
 
+/* Centre-align helper */
 .center {
     text-align: center;
 }
 
+/* Inline gold text helper */
 .gold {
     color: var(--gold);
 }
 
-/* ========== BUTTONS ========== */
+
+/* ============================================================
+   5. BUTTONS
+   All CTA button variants — gold, outline, WhatsApp, call.
+   Uses ::after pseudo-element for a shared hover shine.
+   ============================================================ */
+
+/* Base button — shared across all variants */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -134,6 +204,7 @@ a {
     overflow: hidden;
 }
 
+/* Shared white-shine hover overlay */
 .btn::after {
     content: '';
     position: absolute;
@@ -147,6 +218,7 @@ a {
     opacity: 1;
 }
 
+/* Gold gradient CTA — primary action */
 .btn-gold {
     background: linear-gradient(135deg, var(--gold) 0%, #e8c060 50%, var(--gold) 100%);
     background-size: 200%;
@@ -160,6 +232,7 @@ a {
     transform: translateY(-2px);
 }
 
+/* Transparent outlined button — secondary action */
 .btn-outline {
     background: transparent;
     border: 2px solid var(--gold);
@@ -172,6 +245,7 @@ a {
     box-shadow: 0 4px 20px rgba(201, 168, 76, 0.2);
 }
 
+/* WhatsApp button — green gradient */
 .btn-wa {
     background: linear-gradient(135deg, #25d366, #128c5e);
     color: #fff;
@@ -183,6 +257,7 @@ a {
     box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
 }
 
+/* Phone call button — red gradient */
 .btn-call {
     background: linear-gradient(135deg, #e53935, #b71c1c);
     color: #fff;
@@ -194,7 +269,24 @@ a {
     box-shadow: 0 6px 30px rgba(229, 57, 53, 0.5);
 }
 
-/* ========== DIVIDER ========== */
+/* Icon colours inside hero buttons */
+.hero-btns .btn-call i {
+    color: #7f1414;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.hero-btns .btn-wa i {
+    color: #128c5e;
+    font-weight: 900;
+    font-size: 1.7rem;
+}
+
+
+/* ============================================================
+   6. GOLD DIVIDER
+   Short decorative horizontal rule placed below section titles.
+   ============================================================ */
 .gold-divider {
     width: 60px;
     height: 3px;
@@ -203,7 +295,12 @@ a {
     border-radius: 4px;
 }
 
-/* ========== 1. TOP BAR ========== */
+
+/* ============================================================
+   7. TOP BAR
+   Slim announcement bar at the very top of the page.
+   Contains the contact number and WhatsApp quick-link.
+   ============================================================ */
 #top-bar {
     background: linear-gradient(90deg, #0b0018, var(--violet), #0b0018);
     border-bottom: 1px solid var(--border);
@@ -234,6 +331,7 @@ a {
     justify-content: center;
 }
 
+/* Quick-link buttons inside the top bar */
 #top-bar .top-btns a {
     display: inline-flex;
     align-items: center;
@@ -245,6 +343,7 @@ a {
     transition: var(--transition);
 }
 
+/* Call button — gold */
 #top-bar .tb-call {
     background: var(--gold);
     color: #1a0a00;
@@ -254,6 +353,7 @@ a {
     background: var(--gold-light);
 }
 
+/* WhatsApp button — green */
 #top-bar .tb-wa {
     background: #25d366;
     color: #fff;
@@ -263,9 +363,10 @@ a {
     background: #1ebe5d;
 }
 
-#x-mark{
+/* Close / dismiss button for the top bar */
+#x-mark {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 5px;
     color: var(--white);
     font-size: 1.2rem;
@@ -273,7 +374,11 @@ a {
     cursor: pointer;
 }
 
-/* ========== 2. NAV ========== */
+
+/* ============================================================
+   8. NAVIGATION BAR
+   Sticky header with logo, nav links, CTA, and mobile hamburger.
+   ============================================================ */
 #navbar {
     position: sticky;
     top: 0;
@@ -293,6 +398,7 @@ a {
     margin: 0 auto;
 }
 
+/* Logo mark + brand name */
 .nav-logo {
     font-family: var(--font-head);
     font-size: 1.45rem;
@@ -304,11 +410,9 @@ a {
     gap: 10px;
 }
 
+/* Circular logo icon / avatar */
 .nav-logo .logo-icon {
-    /* min-height: fit-content; */
-    /* min-width: fit-content; */
     width: 38px;
-    /* height: 38px; */
     background: radial-gradient(circle at 40% 40%, var(--gold-light), var(--gold));
     border-radius: 50%;
     display: flex;
@@ -317,7 +421,6 @@ a {
     font-size: 1.1rem;
     color: #1a0a00;
     box-shadow: 0 0 14px rgba(201, 168, 76, 0.5);
-    border-radius: 50%;
     overflow: hidden;
 }
 
@@ -325,6 +428,7 @@ a {
     border-radius: 50%;
 }
 
+/* Horizontal nav link list */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -341,6 +445,7 @@ a {
     position: relative;
 }
 
+/* Animated underline on hover */
 .nav-menu a::after {
     content: '';
     position: absolute;
@@ -361,11 +466,13 @@ a {
     transform: scaleX(1);
 }
 
+/* Nav CTA button — smaller than hero buttons */
 .nav-cta {
     font-size: 0.85rem !important;
     padding: 10px 22px !important;
 }
 
+/* Hamburger icon — shown on mobile only */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -383,6 +490,7 @@ a {
     transition: var(--transition);
 }
 
+/* Mobile dropdown menu — toggled by JS */
 .mobile-menu {
     display: none;
     flex-direction: column;
@@ -408,28 +516,147 @@ a {
     display: flex;
 }
 
-/* ========== 3. HERO ========== */
+/* ========== NAV DROPDOWN ========== */
+
+/* Make nav item relative for dropdown positioning */
+.nav-menu .has-dropdown {
+    position: relative;
+}
+
+/* Dropdown menu panel */
+.nav-dropdown {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 240px;
+    background: rgba(13, 11, 26, 0.97);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.06);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 1000;
+    list-style: none;
+}
+
+/* Small arrow pointing up toward the nav link */
+.nav-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 6px;
+    background: var(--border);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Show dropdown on hover */
+.has-dropdown:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Each dropdown item */
+.nav-dropdown li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+/* Remove the underline animation from dropdown items */
+.nav-dropdown li a::after {
+    display: none;
+}
+
+.nav-dropdown li a:hover {
+    background: rgba(201, 168, 76, 0.08);
+    color: var(--gold-pale);
+    padding-left: 18px;
+}
+
+/* Icon beside each service name */
+.nav-dropdown li a i {
+    width: 28px;
+    height: 28px;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: background var(--transition);
+}
+
+.nav-dropdown li a:hover i {
+    background: rgba(201, 168, 76, 0.18);
+}
+
+/* Divider line between groups */
+.nav-dropdown-divider {
+    height: 1px;
+    background: rgba(201, 168, 76, 0.08);
+    margin: 6px 8px;
+}
+
+/* "Services" trigger link — show chevron arrow */
+.has-dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.has-dropdown > a .nav-chevron {
+    font-size: 0.6rem;
+    color: var(--muted);
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+.has-dropdown:hover > a .nav-chevron {
+    transform: rotate(180deg);
+    color: var(--gold);
+}
+
+/* ============================================================
+   9. HERO SECTION
+   Full-viewport opening section with orbiting rings,
+   headline, problem tags, and CTA buttons.
+   ============================================================ */
 #hero {
     min-height: 100vh;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     text-align: center;
     position: relative;
     z-index: 2;
     overflow: hidden;
-    padding: 50px 0px;
+    padding: 50px 0;
     background:
         radial-gradient(ellipse 70% 60% at 50% 30%, rgba(124, 58, 237, 0.2) 0%, transparent 70%),
         radial-gradient(ellipse 50% 40% at 20% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
         var(--black);
 }
 
+/* Rotating decorative rings around hero centre */
 .hero-orbit {
     position: absolute;
     border-radius: 50%;
     border: 2px solid rgba(201, 168, 76, 0.08);
-
     pointer-events: none;
     animation: orbit-spin 40s linear infinite;
 }
@@ -467,6 +694,7 @@ a {
     }
 }
 
+/* Small pill badge above the hero title */
 .hero-badge {
     display: inline-block;
     padding: 7px 20px;
@@ -480,6 +708,7 @@ a {
     animation: fade-up 0.7s ease both;
 }
 
+/* Main hero headline */
 .hero-title {
     font-family: var(--font-head);
     font-size: clamp(2.4rem, 6vw, 5rem);
@@ -502,6 +731,7 @@ a {
     background-clip: text;
 }
 
+/* Horizontal list of problems the astrologer solves */
 .hero-problems {
     display: flex;
     flex-wrap: wrap;
@@ -519,17 +749,20 @@ a {
     gap: 6px;
 }
 
+/* Gold star bullet before each problem tag */
 .hero-problems span::before {
     content: '✦';
     color: var(--gold);
     font-size: 0.65rem;
 }
 
+/* Dot separator between problem tags */
 .sep {
     color: rgba(201, 168, 76, 0.3);
     padding: 0 4px;
 }
 
+/* Hero CTA button row */
 .hero-btns {
     display: flex;
     gap: 14px;
@@ -538,18 +771,7 @@ a {
     animation: fade-up 0.8s 0.45s ease both;
 }
 
-.hero-btns .btn-call i {
-    color: #7f1414;
-    font-weight: 900;
-    font-size: 1.2rem;
-}
-
-.hero-btns .btn-wa i {
-    color: #128c5e;
-    font-weight: 900;
-    font-size: 1.7rem;
-}
-
+/* Scroll-down indicator */
 .hero-scroll {
     margin-top: 56px;
     display: flex;
@@ -566,6 +788,7 @@ a {
     color: var(--muted);
 }
 
+/* Animated vertical line below scroll text */
 .scroll-dot {
     width: 2px;
     height: 40px;
@@ -574,6 +797,7 @@ a {
     animation: scroll-pulse 2s ease-in-out infinite;
 }
 
+/* Keyframes */
 @keyframes scroll-pulse {
 
     0%,
@@ -600,7 +824,12 @@ a {
     }
 }
 
-/* ========== 4. TRUST SECTION ========== */
+
+/* ============================================================
+   10. TRUST SECTION
+   Four-column stat grid directly below the hero.
+   Negative top margin pulls it flush with the hero.
+   ============================================================ */
 #trust {
     padding: 0;
     position: relative;
@@ -657,218 +886,334 @@ a {
     letter-spacing: 0.05em;
 }
 
-/* ========== 5. PROBLEMS ========== */
-/* ── Shimmer sweep on the image ── */
+
+/* ============================================================
+   11. PROBLEMS SECTION
+   Grid of clickable problem cards linking to WhatsApp.
+   Each card has layered animations: entrance, bob, glow,
+   shimmer, pulse rings, and sparkles.
+   ============================================================ */
+
+/* --- Keyframe Definitions --- */
+
+/* Gold shimmer light sweep across a card on hover */
 @keyframes shimmer {
-  0%   { transform: translateX(-100%) skewX(-15deg); }
-  100% { transform: translateX(250%) skewX(-15deg); }
+    0% {
+        transform: translateX(-100%) skewX(-15deg);
+    }
+
+    100% {
+        transform: translateX(250%) skewX(-15deg);
+    }
 }
 
-/* ── Pulse ring that radiates outward ── */
+/* Expanding ring that fades out — used around card images */
 @keyframes pulse-ring {
-  0%   { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
-  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.6);
+        opacity: 0;
+    }
 }
 
-/* ── Floating bob ── */
+/* Gentle vertical bob for card images */
 @keyframes float-bob {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-7px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
 }
 
-/* ── Gold top border glow ── */
+/* Gold bar at card top pulses in width and brightness */
 @keyframes border-glow {
-  0%, 100% { opacity: 0.4; width: 40%; }
-  50%       { opacity: 1;   width: 90%; }
+
+    0%,
+    100% {
+        opacity: 0.4;
+        width: 40%;
+    }
+
+    50% {
+        opacity: 1;
+        width: 90%;
+    }
 }
 
-/* ── Card entrance stagger ── */
+/* Card slides up on page load */
 @keyframes card-entrance {
-  from { opacity: 0; transform: translateY(30px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0)   scale(1); }
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
-/* ── Sparkle twinkle ── */
+/* Small dot twinkles on and off */
 @keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-  50%       { opacity: 1; transform: scale(1) rotate(180deg); }
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
 }
 
+/* --- Section Background --- */
 #problems {
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(45, 16, 84, 0.3) 0%, transparent 70%),
-    var(--deep);
+    background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(45, 16, 84, 0.3) 0%, transparent 70%),
+        var(--deep);
 }
 
+/* --- Grid Layout --- */
 .problems-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
 }
 
-/* ── Base card ── */
+/* --- Base Card Styles --- */
 .problem-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.35s ease,
-              border-color 0.35s ease,
-              background 0.35s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
 
-  /* staggered entrance — overridden per child below */
-  animation: card-entrance 0.6s ease both;
+    /* Smooth transitions for interactive states */
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+
+    /* Entrance animation — delay overridden per card below */
+    animation: card-entrance 0.6s ease both;
 }
 
-/* Stagger each card's entrance */
-.problems-grid .problem-card:nth-child(1) { animation-delay: 0.05s; }
-.problems-grid .problem-card:nth-child(2) { animation-delay: 0.15s; }
-.problems-grid .problem-card:nth-child(3) { animation-delay: 0.25s; }
-.problems-grid .problem-card:nth-child(4) { animation-delay: 0.35s; }
+/* Stagger each card's entrance by 100ms */
+.problems-grid .problem-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
 
-/* ── Animated gold top line ── */
+.problems-grid .problem-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.problems-grid .problem-card:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.problems-grid .problem-card:nth-child(4) {
+    animation-delay: 0.35s;
+}
+
+/* --- Gold Top Line (::before) --- */
+/* Animating bar that pulses wider and brighter across the top edge */
 .problem-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 40%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  animation: border-glow 3s ease-in-out infinite;
-  border-radius: 0 0 4px 4px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: border-glow 3s ease-in-out infinite;
+    border-radius: 0 0 4px 4px;
 }
 
-/* Stagger the glow pulse per card */
-.problems-grid .problem-card:nth-child(1)::before { animation-delay: 0s; }
-.problems-grid .problem-card:nth-child(2)::before { animation-delay: 0.75s; }
-.problems-grid .problem-card:nth-child(3)::before { animation-delay: 1.5s; }
-.problems-grid .problem-card:nth-child(4)::before { animation-delay: 2.25s; }
+/* Stagger each card's glow pulse by 750ms */
+.problems-grid .problem-card:nth-child(1)::before {
+    animation-delay: 0s;
+}
 
-/* ── Shimmer sweep overlay ── */
+.problems-grid .problem-card:nth-child(2)::before {
+    animation-delay: 0.75s;
+}
+
+.problems-grid .problem-card:nth-child(3)::before {
+    animation-delay: 1.5s;
+}
+
+.problems-grid .problem-card:nth-child(4)::before {
+    animation-delay: 2.25s;
+}
+
+/* --- Gold Shimmer Overlay (::after) --- */
+/* Light beam that sweeps across the card on hover */
 .problem-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 40%; height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(201, 168, 76, 0.1) 50%,
-    transparent 80%
-  );
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-.problem-card::after {
-  opacity: 1;
-  animation: shimmer 0.7s ease forwards;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(105deg,
+            transparent 20%,
+            rgba(201, 168, 76, 0.1) 50%,
+            transparent 80%);
+    pointer-events: none;
+    opacity: 1;
+    animation: shimmer 0.7s ease forwards;
 }
 
-/* ── Pulse ring (behind image) ── */
+/* --- Pulse Rings (span.pulse-ring) --- */
+/* Two concentric rings that expand outward from behind the image */
 .problem-card .pulse-ring {
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(201, 168, 76, 0.4);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(201, 168, 76, 0.4);
+    pointer-events: none;
+    opacity: 1;
+    animation: pulse-ring 1.2s ease-out infinite;
 }
-.problem-card .pulse-ring {
-  opacity: 1;
-  animation: pulse-ring 1.2s ease-out infinite;
-}
+
+/* Second ring — larger, more transparent, delayed */
 .problem-card .pulse-ring-2 {
-  animation-delay: 0.4s !important;
-  border-color: rgba(201, 168, 76, 0.25);
-  width: 100px; height: 100px;
+    width: 100px;
+    height: 100px;
+    border-color: rgba(201, 168, 76, 0.25);
+    animation-delay: 0.4s !important;
 }
 
-/* ── Sparkle dots ── */
+/* --- Sparkle Dots (span.sparkle) --- */
+/* Three tiny gold dots that twinkle at card corners */
 .problem-card .sparkle {
-  position: absolute;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  pointer-events: none;
-  opacity: 0;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    pointer-events: none;
+    opacity: 0;
+    animation: sparkle 1.4s ease infinite;
 }
-.problem-card .sparkle { animation: sparkle 1.4s ease infinite; }
-.problem-card .sparkle-1 { top: 14%; left: 16%; animation-delay: 0s !important; }
-.problem-card .sparkle-2 { top: 18%; right: 14%; animation-delay: 0.5s !important; }
-.problem-card .sparkle-3 { bottom: 20%; left: 20%; animation-delay: 1.0s !important; }
 
-/* ── Hover state ── */
+.problem-card .sparkle-1 {
+    top: 14%;
+    left: 16%;
+    animation-delay: 0s !important;
+}
+
+.problem-card .sparkle-2 {
+    top: 18%;
+    right: 14%;
+    animation-delay: 0.5s !important;
+}
+
+.problem-card .sparkle-3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 1.0s !important;
+}
+
+/* --- Hover State --- */
 .problem-card:hover {
-  border-color: rgba(201, 168, 76, 0.55);
-  background: rgba(201, 168, 76, 0.07);
-  transform: translateY(-8px) scale(1.03);
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(201, 168, 76, 0.1),
-    0 0 30px rgba(201, 168, 76, 0.06);
+    border-color: rgba(201, 168, 76, 0.55);
+    background: rgba(201, 168, 76, 0.07);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(201, 168, 76, 0.1),
+        0 0 30px rgba(201, 168, 76, 0.06);
 }
 
-/* ── Image wrapper with float animation ── */
+/* --- Problem Image (span.problem-icon > img) --- */
 .problem-icon {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  display: block;
-  position: relative;
-  z-index: 2;
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    display: block;
+    position: relative;
+    z-index: 2;
 }
+
 .problem-icon img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid rgba(201, 168, 76, 0.25);
-  margin: 0 auto;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
-  animation: float-bob 4s ease-in-out infinite;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(201, 168, 76, 0.25);
+    margin: 0 auto;
+    animation: float-bob 4s ease-in-out infinite;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Stagger the float timing per card */
-.problems-grid .problem-card:nth-child(1) .problem-icon img { animation-delay: 0s; }
-.problems-grid .problem-card:nth-child(2) .problem-icon img { animation-delay: 0.5s; }
-.problems-grid .problem-card:nth-child(3) .problem-icon img { animation-delay: 1.0s; }
-.problems-grid .problem-card:nth-child(4) .problem-icon img { animation-delay: 1.5s; }
+/* Stagger each image's float timing so they bob at different phases */
+.problems-grid .problem-card:nth-child(1) .problem-icon img {
+    animation-delay: 0s;
+}
 
+.problems-grid .problem-card:nth-child(2) .problem-icon img {
+    animation-delay: 0.5s;
+}
+
+.problems-grid .problem-card:nth-child(3) .problem-icon img {
+    animation-delay: 1.0s;
+}
+
+.problems-grid .problem-card:nth-child(4) .problem-icon img {
+    animation-delay: 1.5s;
+}
+
+/* Gold glow on images — always visible as a subtle accent */
 .problem-card .problem-icon img {
-  border-color: rgba(201, 168, 76, 0.7);
-  box-shadow:
-    0 0 20px rgba(201, 168, 76, 0.35),
-    0 0 40px rgba(201, 168, 76, 0.15);
-  animation-play-state: paused; /* stops bobbing on hover for focus */
+    border-color: rgba(201, 168, 76, 0.7);
+    box-shadow:
+        0 0 20px rgba(201, 168, 76, 0.35),
+        0 0 40px rgba(201, 168, 76, 0.15);
+    animation-play-state: paused;
+    /* bob pauses on hover for focus */
 }
 
-/* ── Problem name ── */
+/* --- Problem Label --- */
 .problem-name {
-  font-family: var(--font-head);
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.03em;
-  position: relative;
-  z-index: 2;
-  transition: color 0.3s ease;
-}
-.problem-card:hover .problem-name {
-  color: var(--gold-light, #f0d080);
+    font-family: var(--font-head);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.03em;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
 }
 
-/* ========== 6. ABOUT ========== */
+.problem-card:hover .problem-name {
+    color: var(--gold-light, #f0d080);
+}
+
+
+/* ============================================================
+   12. ABOUT SECTION
+   Two-column layout — image frame on left, text on right.
+   ============================================================ */
 #about {
     background: var(--black);
 }
@@ -880,6 +1225,7 @@ a {
     align-items: center;
 }
 
+/* Left column — image frame */
 .about-img-wrap {
     position: relative;
 }
@@ -900,6 +1246,7 @@ a {
     overflow: hidden;
 }
 
+/* Radial glow overlay inside the image frame */
 .about-img-frame::before {
     content: '';
     position: absolute;
@@ -919,6 +1266,7 @@ a {
     letter-spacing: 0.05em;
 }
 
+/* Gold badge overlapping the image frame bottom-right */
 .about-img-badge {
     position: absolute;
     bottom: 20px;
@@ -934,6 +1282,7 @@ a {
     box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
 }
 
+/* Right column — text */
 .about-text .section-title {
     text-align: left;
 }
@@ -948,6 +1297,7 @@ a {
     margin-bottom: 18px;
 }
 
+/* Skill / expertise chips */
 .about-feats {
     display: flex;
     flex-wrap: wrap;
@@ -964,7 +1314,12 @@ a {
     color: var(--gold-pale);
 }
 
-/* ========== 7. SERVICES ========== */
+
+/* ============================================================
+   13. SERVICES SECTION
+   Three-column card grid. Each card has a diagonal gradient
+   overlay that fades in on hover.
+   ============================================================ */
 #services {
     background:
         radial-gradient(ellipse 70% 60% at 20% 50%, rgba(45, 16, 84, 0.25) 0%, transparent 60%),
@@ -987,6 +1342,7 @@ a {
     overflow: hidden;
 }
 
+/* Diagonal gradient hover overlay */
 .service-card::after {
     content: '';
     position: absolute;
@@ -1000,7 +1356,9 @@ a {
 .service-card:hover {
     transform: translateY(-6px);
     border-color: rgba(201, 168, 76, 0.45);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 30px rgba(201, 168, 76, 0.08);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(201, 168, 76, 0.08);
 }
 
 .service-card:hover::after {
@@ -1027,6 +1385,7 @@ a {
     line-height: 1.75;
 }
 
+/* "Consult Now →" inline text link */
 .service-link {
     display: inline-flex;
     align-items: center;
@@ -1042,23 +1401,34 @@ a {
 .service-card:hover .service-link {
     gap: 10px;
 }
-.service-card a{
+
+/* WhatsApp anchor inside each service card */
+.service-card a {
     cursor: pointer;
 }
-.service-card a:hover{
+
+.service-card a:hover {
     padding-bottom: 2px;
     border-bottom: 1px solid var(--gold);
 }
-/* ========== 8. TESTIMONIALS ========== */
+
+
+/* ============================================================
+   14. TESTIMONIALS SECTION
+   Horizontally scrolling carousel of review cards.
+   Controlled by JS prev/next buttons and dot indicators.
+   ============================================================ */
 #testimonials {
     background: var(--black);
     overflow: hidden;
 }
 
+/* Outer wrapper for positioning */
 .testi-track-wrap {
     position: relative;
 }
 
+/* The sliding row of cards */
 .testi-track {
     display: flex;
     gap: 22px;
@@ -1066,6 +1436,7 @@ a {
     will-change: transform;
 }
 
+/* Individual review card — shows 3 at a time on desktop */
 .testi-card {
     flex: 0 0 calc((100% - 44px) / 3);
     background: var(--card-bg);
@@ -1075,6 +1446,7 @@ a {
     position: relative;
 }
 
+/* Large decorative quote mark */
 .testi-card::before {
     content: '"';
     position: absolute;
@@ -1101,6 +1473,7 @@ a {
     margin-bottom: 20px;
 }
 
+/* Author row — avatar + name + location */
 .testi-author {
     display: flex;
     align-items: center;
@@ -1133,6 +1506,7 @@ a {
     color: var(--muted);
 }
 
+/* Prev / next navigation buttons */
 .testi-controls {
     display: flex;
     justify-content: center;
@@ -1160,6 +1534,7 @@ a {
     border-color: var(--gold);
 }
 
+/* Dot position indicators */
 .testi-dots {
     display: flex;
     gap: 8px;
@@ -1182,7 +1557,11 @@ a {
     transform: scale(1.3);
 }
 
-/* ========== 9. WHY CHOOSE ========== */
+
+/* ============================================================
+   15. WHY CHOOSE US SECTION
+   Two-column grid of reason cards with icon + text.
+   ============================================================ */
 #why {
     background:
         radial-gradient(ellipse 60% 50% at 50% 50%, rgba(45, 16, 84, 0.3) 0%, transparent 70%),
@@ -1210,8 +1589,10 @@ a {
     border-color: rgba(201, 168, 76, 0.4);
     background: rgba(201, 168, 76, 0.05);
     transform: translateX(4px);
+    /* slides right on hover */
 }
 
+/* Square icon container */
 .why-icon-wrap {
     width: 48px;
     height: 48px;
@@ -1238,10 +1619,18 @@ a {
     color: var(--muted);
 }
 
-/* ========== 10. CTA BANNER ========== */
+
+/* ============================================================
+   16. CTA BANNER
+   Full-width centre-aligned call-to-action strip between
+   the Why section and Contact form.
+   ============================================================ */
 #cta-banner {
     background:
-        linear-gradient(135deg, rgba(45, 16, 84, 0.95) 0%, rgba(13, 5, 26, 0.98) 50%, rgba(45, 16, 84, 0.95) 100%);
+        linear-gradient(135deg,
+            rgba(45, 16, 84, 0.95) 0%,
+            rgba(13, 5, 26, 0.98) 50%,
+            rgba(45, 16, 84, 0.95) 100%);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     padding: 72px 20px;
@@ -1250,6 +1639,7 @@ a {
     overflow: hidden;
 }
 
+/* Decorative radial glows behind the CTA text */
 #cta-banner::before {
     content: '';
     position: absolute;
@@ -1286,6 +1676,7 @@ a {
     margin-bottom: 36px;
 }
 
+/* CTA button row */
 .cta-btns {
     display: flex;
     gap: 16px;
@@ -1298,7 +1689,11 @@ a {
     padding: 16px 34px;
 }
 
-/* ========== 11. CONTACT FORM ========== */
+
+/* ============================================================
+   17. CONTACT FORM SECTION
+   Two-column layout — info on left, form card on right.
+   ============================================================ */
 #contact {
     background: var(--black);
 }
@@ -1310,8 +1705,7 @@ a {
     align-items: start;
 }
 
-.contact-info {}
-
+/* Left column — contact details */
 .contact-info .section-title {
     text-align: left;
 }
@@ -1325,6 +1719,7 @@ a {
     margin-bottom: 28px;
 }
 
+/* Individual contact detail row */
 .contact-detail {
     display: flex;
     align-items: center;
@@ -1337,6 +1732,7 @@ a {
     border-bottom: none;
 }
 
+/* Square icon for each contact method */
 .cd-icon {
     width: 42px;
     height: 42px;
@@ -1360,6 +1756,7 @@ a {
     font-size: 0.95rem;
 }
 
+/* Right column — form card */
 .form-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -1389,6 +1786,7 @@ a {
     margin-bottom: 7px;
 }
 
+/* Shared styles for all form inputs */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -1400,9 +1798,9 @@ a {
     color: var(--white);
     font-family: var(--font-body);
     font-size: 0.92rem;
-    transition: border-color var(--transition), box-shadow var(--transition);
     outline: none;
     -webkit-appearance: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .form-group select {
@@ -1414,6 +1812,7 @@ a {
     resize: vertical;
 }
 
+/* Gold focus ring on all inputs */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -1426,6 +1825,7 @@ a {
     color: rgba(168, 157, 192, 0.5);
 }
 
+/* Full-width submit button */
 .form-submit {
     width: 100%;
     padding: 16px;
@@ -1434,10 +1834,10 @@ a {
     letter-spacing: 0.06em;
     margin-top: 6px;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
 }
 
+/* Privacy note below the submit button */
 .form-privacy {
     text-align: center;
     font-size: 0.75rem;
@@ -1445,7 +1845,12 @@ a {
     margin-top: 14px;
 }
 
-/* ========== FOOTER ========== */
+
+/* ============================================================
+   18. FOOTER
+   Four-column grid with brand, quick links, services,
+   and contact info. Collapses to 2 columns on tablet.
+   ============================================================ */
 footer {
     background: rgba(5, 5, 8, 0.98);
     border-top: 1px solid var(--border);
@@ -1472,6 +1877,7 @@ footer {
     max-width: 260px;
 }
 
+/* Footer column heading */
 .footer-col h4 {
     font-family: var(--font-head);
     font-size: 0.9rem;
@@ -1497,6 +1903,7 @@ footer {
     gap: 7px;
 }
 
+/* Gold arrow bullet before footer links */
 .footer-col ul li a::before {
     content: '›';
     color: var(--gold);
@@ -1506,6 +1913,7 @@ footer {
     color: var(--gold-pale);
 }
 
+/* Contact items in the last footer column */
 .footer-contact-item {
     display: flex;
     align-items: flex-start;
@@ -1521,6 +1929,7 @@ footer {
     margin-top: 2px;
 }
 
+/* Bottom copyright bar */
 .footer-bottom {
     border-top: 1px solid var(--border);
     padding: 20px 0;
@@ -1536,6 +1945,7 @@ footer {
     color: rgba(168, 157, 192, 0.5);
 }
 
+/* Social icon links */
 .footer-socials {
     display: flex;
     gap: 10px;
@@ -1560,7 +1970,12 @@ footer {
     border-color: var(--gold);
 }
 
-/* ========== SUCCESS MODAL ========== */
+
+/* ============================================================
+   19. SUCCESS MODAL
+   Displayed after the contact form is submitted.
+   Uses a spring-bounce entrance animation.
+   ============================================================ */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -1616,7 +2031,12 @@ footer {
     margin-bottom: 28px;
 }
 
-/* ========== SCROLL ANIMATION ========== */
+
+/* ============================================================
+   20. SCROLL REVEAL ANIMATION
+   Applied by JS IntersectionObserver — elements start hidden
+   and animate in when they enter the viewport.
+   ============================================================ */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -1628,7 +2048,14 @@ footer {
     transform: translateY(0);
 }
 
-/* ========== FLOATING WA BUTTON ========== */
+
+/* ============================================================
+   21. FLOATING ACTION BUTTONS
+   Fixed WhatsApp and Call buttons in the bottom-right corner.
+   Both pulse continuously to draw attention.
+   ============================================================ */
+
+/* Container stacks buttons vertically */
 .float-ct {
     display: flex;
     flex-direction: column;
@@ -1636,67 +2063,79 @@ footer {
     bottom: 28px;
     right: 28px;
     gap: 15px;
-
     z-index: 9000;
 }
 
+/* Shared circular button style */
 .float-wa {
-    /* position: fixed; */
-    /* bottom: 28px; */
-    /* right: 28px; */
-    /* z-index: 9000; */
     width: 58px;
     height: 58px;
-    background: linear-gradient(135deg, #25d366, #128c5e);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
     cursor: pointer;
-    animation: float-pulse 3s ease-in-out infinite;
     text-decoration: none;
     color: #fff;
+
+    /* WhatsApp green */
+    background: linear-gradient(135deg, #25d366, #128c5e);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    animation: float-pulse 3s ease-in-out infinite;
 }
 
+/* Phone call variant — red */
 #float-ca {
     background: linear-gradient(135deg, #d32525, #b81616db);
     box-shadow: 0 4px 20px rgba(211, 37, 37, 0.5);
     animation: float-pulse-ca 3s ease-in-out infinite;
-
 }
 
 #float-ca i {
     font-size: 1.1rem;
 }
 
+/* Red pulse keyframes */
 @keyframes float-pulse-ca {
 
     0%,
     100% {
-        box-shadow: 0 4px 20px rgba(211, 37, 37, 0.5), 0 0 0 0 rgba(211, 37, 37, 0.4);
+        box-shadow: 0 4px 20px rgba(211, 37, 37, 0.5),
+            0 0 0 0 rgba(211, 37, 37, 0.4);
     }
 
     50% {
-        box-shadow: 0 6px 30px rgba(211, 37, 37, 0.6), 0 0 0 12px rgba(211, 37, 37, 0);
+        box-shadow: 0 6px 30px rgba(211, 37, 37, 0.6),
+            0 0 0 12px rgba(211, 37, 37, 0);
     }
 }
 
+/* Green pulse keyframes */
 @keyframes float-pulse {
 
     0%,
     100% {
-        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0.4);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5),
+            0 0 0 0 rgba(37, 211, 102, 0.4);
     }
 
     50% {
-        box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6), 0 0 0 12px rgba(37, 211, 102, 0);
+        box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6),
+            0 0 0 12px rgba(37, 211, 102, 0);
     }
 }
 
-/* ========== RESPONSIVE ========== */
-@media(max-width: 1024px) {
+
+/* ============================================================
+   22. RESPONSIVE BREAKPOINTS
+   Mobile-first adjustments at 1024px, 768px, 600px, 480px.
+   ============================================================ */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+
+    /* Trust grid: 4 → 2 columns */
     .trust-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1714,14 +2153,12 @@ footer {
         border-right: none;
     }
 
-    .problems-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
+    /* Services: 3 → 2 columns */
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Footer: 4 → 2 columns */
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1731,8 +2168,10 @@ footer {
     }
 }
 
-@media(max-width: 768px) {
+/* ── Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
 
+    /* Hide desktop nav — show hamburger */
     .nav-menu,
     .nav-cta {
         display: none;
@@ -1742,10 +2181,12 @@ footer {
         display: flex;
     }
 
+    /* Reduce section padding */
     .section {
         padding: 64px 0;
     }
 
+    /* About: 2-col → 1-col stacked */
     .about-wrap {
         grid-template-columns: 1fr;
     }
@@ -1755,22 +2196,27 @@ footer {
         margin: 0 auto;
     }
 
+    /* Contact: 2-col → 1-col stacked */
     .contact-wrap {
         grid-template-columns: 1fr;
     }
 
+    /* Problems: 4 → 2 columns */
     .problems-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Why grid: 2 → 1 column */
     .why-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Testimonials: show 1 card at a time */
     .testi-card {
         flex: 0 0 calc(100% - 22px);
     }
 
+    /* Footer: collapse to single column */
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -1780,42 +2226,56 @@ footer {
         text-align: center;
     }
 
-    #problems{
+    /* Reduce top padding on problems section */
+    #problems {
         padding-top: 15px;
     }
 }
 
-@media(max-width: 600px) {
+/* ── Small mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+
+    /* Trust: 4 → 2 columns */
     .trust-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Services: 2 → 1 column */
     .services-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Reduce form card padding */
     .form-card {
         padding: 28px 20px;
     }
 
+    /* Smaller hero buttons */
     .hero-btns .btn {
         padding: 12px 22px;
         font-size: 0.88rem;
     }
-    .about-img-badge{
+
+    /* Move badge higher on mobile */
+    .about-img-badge {
         bottom: 50px;
     }
 }
 
-@media(max-width: 480px) {
+/* ── Extra small (≤ 480px) ── */
+@media (max-width: 480px) {
+
+    /* Shrink logo text */
     #navbar .nav-logo {
         font-size: 1rem;
     }
 
+    /* Problems stays at 2 columns */
     .problems-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Top bar compactness */
     #top-bar .inner {
         gap: 10px;
     }
@@ -1826,28 +2286,35 @@ footer {
         padding: 5px 25px;
     }
 
+    /* Smaller hero badge */
     .hero-badge {
         font-size: 0.6rem;
         padding: 5px 10px;
     }
 
+    /* Compact about chips */
     .about-feat {
         font-size: 0.78rem;
         padding: 8px 6px;
     }
 
+    /* Tighter problem cards */
     .problem-card {
         padding: 10px;
     }
 
-    .hero-btns{
+    /* Stack hero buttons vertically */
+    .hero-btns {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
-    .hero-btns a{
+
+    .hero-btns a {
         max-width: fit-content;
     }
+
+    /* Compact trust cards */
     .trust-card {
         padding: 5px;
     }
@@ -1861,18 +2328,19 @@ footer {
         font-size: 0.85rem;
     }
 
+    /* Smaller CTA banner buttons */
     #cta-banner .btn {
         padding: 12px;
+        font-size: 1rem;
     }
 
-    #hero{
+    /* Reduce hero bottom padding */
+    #hero {
         padding-bottom: 10px;
     }
 
+    /* Footer logo size */
     .footer-brand .nav-logo {
         font-size: 1.3rem;
-    }
-    #cta-banner .btn {
-        font-size: 1rem;
     }
 }

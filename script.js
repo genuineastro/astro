@@ -187,3 +187,79 @@ document.getElementById('x-mark').addEventListener("click", () => {
     console.log("hello")
     document.getElementById('top-bar').style.display = 'none'
 })
+
+
+/* ========== CUSTOM CURSOR ========== */
+(function () {
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    if (!dot || !ring) return;
+
+    /* Skip on touch devices */
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    let mouseX = 0, mouseY = 0;
+    let ringX  = 0, ringY  = 0;
+    let rafId;
+
+    /* Track mouse position */
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        /* Dot follows instantly */
+        dot.style.left = mouseX + 'px';
+        dot.style.top  = mouseY + 'px';
+
+        dot.classList.remove('hidden');
+        ring.classList.remove('hidden');
+    });
+
+    /* Ring lags behind using lerp (linear interpolation) */
+    function animateRing() {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+
+        ring.style.left = ringX + 'px';
+        ring.style.top  = ringY + 'px';
+
+        rafId = requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    /* Hide when mouse leaves window */
+    document.addEventListener('mouseleave', () => {
+        dot.classList.add('hidden');
+        ring.classList.add('hidden');
+    });
+    document.addEventListener('mouseenter', () => {
+        dot.classList.remove('hidden');
+        ring.classList.remove('hidden');
+    });
+
+    /* Hover state on interactive elements */
+    const hoverTargets = 'a, button, .btn, .problem-card, .service-card, .testi-btn, .hamburger, .nav-dropdown li a, .sp-faq-q, .footer-social';
+
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(hoverTargets)) {
+            dot.classList.add('on-link');
+            ring.classList.add('on-link');
+        }
+    });
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(hoverTargets)) {
+            dot.classList.remove('on-link');
+            ring.classList.remove('on-link');
+        }
+    });
+
+    /* Click flash */
+    document.addEventListener('mousedown', () => {
+        dot.classList.add('clicking');
+        ring.classList.add('clicking');
+    });
+    document.addEventListener('mouseup', () => {
+        dot.classList.remove('clicking');
+        ring.classList.remove('clicking');
+    });
+})();
