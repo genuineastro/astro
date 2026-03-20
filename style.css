@@ -658,66 +658,214 @@ a {
 }
 
 /* ========== 5. PROBLEMS ========== */
+/* ── Shimmer sweep on the image ── */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+
+/* ── Pulse ring that radiates outward ── */
+@keyframes pulse-ring {
+  0%   { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}
+
+/* ── Floating bob ── */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+/* ── Gold top border glow ── */
+@keyframes border-glow {
+  0%, 100% { opacity: 0.4; width: 40%; }
+  50%       { opacity: 1;   width: 90%; }
+}
+
+/* ── Card entrance stagger ── */
+@keyframes card-entrance {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* ── Sparkle twinkle ── */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50%       { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
 #problems {
-    background:
-        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(45, 16, 84, 0.3) 0%, transparent 70%),
-        var(--deep);
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(45, 16, 84, 0.3) 0%, transparent 70%),
+    var(--deep);
 }
 
 .problems-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
 
+/* ── Base card ── */
 .problem-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    text-align: center;
-    transition: var(--transition);
-    cursor: default;
-    position: relative;
-    overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease,
+              background 0.35s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+
+  /* staggered entrance — overridden per child below */
+  animation: card-entrance 0.6s ease both;
 }
 
+/* Stagger each card's entrance */
+.problems-grid .problem-card:nth-child(1) { animation-delay: 0.05s; }
+.problems-grid .problem-card:nth-child(2) { animation-delay: 0.15s; }
+.problems-grid .problem-card:nth-child(3) { animation-delay: 0.25s; }
+.problems-grid .problem-card:nth-child(4) { animation-delay: 0.35s; }
+
+/* ── Animated gold top line ── */
 .problem-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0;
-    transition: var(--transition);
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: border-glow 3s ease-in-out infinite;
+  border-radius: 0 0 4px 4px;
 }
 
+/* Stagger the glow pulse per card */
+.problems-grid .problem-card:nth-child(1)::before { animation-delay: 0s; }
+.problems-grid .problem-card:nth-child(2)::before { animation-delay: 0.75s; }
+.problems-grid .problem-card:nth-child(3)::before { animation-delay: 1.5s; }
+.problems-grid .problem-card:nth-child(4)::before { animation-delay: 2.25s; }
+
+/* ── Shimmer sweep overlay ── */
+.problem-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 40%; height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(201, 168, 76, 0.1) 50%,
+    transparent 80%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.problem-card::after {
+  opacity: 1;
+  animation: shimmer 0.7s ease forwards;
+}
+
+/* ── Pulse ring (behind image) ── */
+.problem-card .pulse-ring {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201, 168, 76, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.problem-card .pulse-ring {
+  opacity: 1;
+  animation: pulse-ring 1.2s ease-out infinite;
+}
+.problem-card .pulse-ring-2 {
+  animation-delay: 0.4s !important;
+  border-color: rgba(201, 168, 76, 0.25);
+  width: 100px; height: 100px;
+}
+
+/* ── Sparkle dots ── */
+.problem-card .sparkle {
+  position: absolute;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  pointer-events: none;
+  opacity: 0;
+}
+.problem-card .sparkle { animation: sparkle 1.4s ease infinite; }
+.problem-card .sparkle-1 { top: 14%; left: 16%; animation-delay: 0s !important; }
+.problem-card .sparkle-2 { top: 18%; right: 14%; animation-delay: 0.5s !important; }
+.problem-card .sparkle-3 { bottom: 20%; left: 20%; animation-delay: 1.0s !important; }
+
+/* ── Hover state ── */
 .problem-card:hover {
-    border-color: rgba(201, 168, 76, 0.5);
-    background: rgba(201, 168, 76, 0.07);
-    transform: translateY(-5px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(201, 168, 76, 0.55);
+  background: rgba(201, 168, 76, 0.07);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(201, 168, 76, 0.1),
+    0 0 30px rgba(201, 168, 76, 0.06);
 }
 
-.problem-card:hover::before {
-    opacity: 1;
-}
-
+/* ── Image wrapper with float animation ── */
 .problem-icon {
-    font-size: 2.4rem;
-    margin-bottom: 12px;
-    display: block;
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.problem-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 168, 76, 0.25);
+  margin: 0 auto;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  animation: float-bob 4s ease-in-out infinite;
 }
 
+/* Stagger the float timing per card */
+.problems-grid .problem-card:nth-child(1) .problem-icon img { animation-delay: 0s; }
+.problems-grid .problem-card:nth-child(2) .problem-icon img { animation-delay: 0.5s; }
+.problems-grid .problem-card:nth-child(3) .problem-icon img { animation-delay: 1.0s; }
+.problems-grid .problem-card:nth-child(4) .problem-icon img { animation-delay: 1.5s; }
+
+.problem-card .problem-icon img {
+  border-color: rgba(201, 168, 76, 0.7);
+  box-shadow:
+    0 0 20px rgba(201, 168, 76, 0.35),
+    0 0 40px rgba(201, 168, 76, 0.15);
+  animation-play-state: paused; /* stops bobbing on hover for focus */
+}
+
+/* ── Problem name ── */
 .problem-name {
-    font-family: var(--font-head);
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--white);
-    letter-spacing: 0.03em;
+  font-family: var(--font-head);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+.problem-card:hover .problem-name {
+  color: var(--gold-light, #f0d080);
 }
 
 /* ========== 6. ABOUT ========== */
@@ -1723,5 +1871,8 @@ footer {
 
     .footer-brand .nav-logo {
         font-size: 1.3rem;
+    }
+    #cta-banner .btn {
+        font-size: 1rem;
     }
 }
