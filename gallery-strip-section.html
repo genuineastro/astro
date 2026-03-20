@@ -1,0 +1,757 @@
+<!-- ============================================================
+     IMAGE CAROUSEL STRIP
+     Place directly below the hero section in index.html
+     Images move right to left continuously.
+     Click any image to open fullscreen lightbox.
+     Add your images by replacing src="./assets/gallery-X.jpg"
+     ============================================================ -->
+
+<section id="gallery-strip" class="gs-section">
+
+  <!-- Header -->
+  <div class="gs-header">
+    <span class="gs-eyebrow">
+      <span class="gs-eyebrow-dot"></span>
+      Our Gallery
+    </span>
+    <h2 class="gs-title">Moments of <em>Divine Guidance</em></h2>
+  </div>
+
+  <!-- Strip wrapper — overflow hidden clips the scrolling track -->
+  <div class="gs-strip-wrap">
+
+    <!-- Fade edges left and right -->
+    <div class="gs-fade gs-fade-left"  aria-hidden="true"></div>
+    <div class="gs-fade gs-fade-right" aria-hidden="true"></div>
+
+    <!-- Scrolling track — duplicated for seamless loop -->
+    <div class="gs-track" id="gsTrack">
+
+      <!-- ── Original set ── -->
+      <div class="gs-item" onclick="gsOpenLightbox(0)" tabindex="0" role="button" aria-label="View image 1">
+        <img src="./assets/gallery-1.jpg" alt="Astrology consultation" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <div class="gs-item" onclick="gsOpenLightbox(1)" tabindex="0" role="button" aria-label="View image 2">
+        <img src="./assets/gallery-2.jpg" alt="Vedic astrology reading" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <div class="gs-item" onclick="gsOpenLightbox(2)" tabindex="0" role="button" aria-label="View image 3">
+        <img src="./assets/gallery-3.jpg" alt="Kundli matching" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <div class="gs-item" onclick="gsOpenLightbox(3)" tabindex="0" role="button" aria-label="View image 4">
+        <img src="./assets/gallery-4.jpg" alt="Love problem solution" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <div class="gs-item" onclick="gsOpenLightbox(4)" tabindex="0" role="button" aria-label="View image 5">
+        <img src="./assets/gallery-5.jpg" alt="Spiritual healing" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <div class="gs-item" onclick="gsOpenLightbox(5)" tabindex="0" role="button" aria-label="View image 6">
+        <img src="./assets/gallery-6.jpg" alt="Vashikaran specialist" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <div class="gs-item" onclick="gsOpenLightbox(6)" tabindex="0" role="button" aria-label="View image 7">
+        <img src="./assets/gallery-7.jpg" alt="Horoscope reading" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <div class="gs-item" onclick="gsOpenLightbox(7)" tabindex="0" role="button" aria-label="View image 8">
+        <img src="./assets/gallery-8.jpg" alt="Gemstone consultation" loading="lazy">
+        <div class="gs-item-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+
+      <!-- ── Duplicate set for seamless infinite loop ── -->
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(0)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-1.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(1)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-2.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(2)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-3.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(3)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-4.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(4)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-5.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(5)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-6.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(6)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-7.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gs-item gs-clone" onclick="gsOpenLightbox(7)" tabindex="-1" aria-hidden="true">
+        <img src="./assets/gallery-8.jpg" alt="" loading="lazy">
+        <div class="gs-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+    </div>
+    <!-- /gs-track -->
+
+  </div>
+  <!-- /gs-strip-wrap -->
+
+</section>
+
+
+<!-- ── LIGHTBOX ── -->
+<div class="gs-lightbox" id="gsLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+
+  <!-- Dark backdrop -->
+  <div class="gs-lb-backdrop" onclick="gsCloseLightbox()"></div>
+
+  <!-- Main lightbox box -->
+  <div class="gs-lb-box">
+
+    <!-- Close button -->
+    <button class="gs-lb-close" onclick="gsCloseLightbox()" aria-label="Close lightbox">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Prev / Next -->
+    <button class="gs-lb-nav gs-lb-prev" onclick="gsLbNav(-1)" aria-label="Previous image">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="gs-lb-nav gs-lb-next" onclick="gsLbNav(1)" aria-label="Next image">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Image -->
+    <div class="gs-lb-img-wrap">
+      <img id="gsLbImg" src="" alt="" class="gs-lb-img">
+      <div class="gs-lb-spinner" id="gsLbSpinner">
+        <i class="fa-solid fa-star-and-crescent fa-spin"></i>
+      </div>
+    </div>
+
+    <!-- Counter + caption -->
+    <div class="gs-lb-footer">
+      <div class="gs-lb-counter">
+        <span id="gsLbCurrent">1</span> / <span id="gsLbTotal">8</span>
+      </div>
+      <div class="gs-lb-caption" id="gsLbCaption">Genuine Astro Guide</div>
+      <div class="gs-lb-dots" id="gsLbDots"></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     CSS
+     Add to style.css or paste in a <style> block
+     ============================================================ -->
+<style>
+
+/* ── Section wrapper ── */
+.gs-section {
+  padding: clamp(48px,6vw,80px) 0 clamp(48px,6vw,72px);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(45,16,84,0.35) 0%, transparent 65%),
+    var(--deep);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Header ── */
+.gs-header {
+  text-align: center;
+  margin-bottom: clamp(28px,4vw,44px);
+  padding: 0 20px;
+}
+.gs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 5px 15px;
+  margin-bottom: 14px;
+}
+.gs-eyebrow-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(201,168,76,0.9);
+  animation: gs-dot-pulse 2s ease-in-out infinite;
+}
+@keyframes gs-dot-pulse {
+  0%,100% { box-shadow: 0 0 8px rgba(201,168,76,0.8); }
+  50%      { box-shadow: 0 0 18px rgba(201,168,76,1), 0 0 30px rgba(201,168,76,0.4); }
+}
+.gs-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.6rem,3vw,2.4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+.gs-title em {
+  font-style: italic;
+  background: linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Strip outer wrapper ── */
+.gs-strip-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 0; /* vertical breathing room */
+}
+
+/* ── Left / right fade gradients ── */
+.gs-fade {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: clamp(60px,8vw,140px);
+  z-index: 3;
+  pointer-events: none;
+}
+.gs-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--deep), transparent);
+}
+.gs-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--deep), transparent);
+}
+
+/* ── The scrolling track ── */
+.gs-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+
+  /* CSS animation — moves left by exactly half (one full set of 8 images) */
+  animation: gs-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.gs-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes gs-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Individual image card ── */
+.gs-item {
+  flex-shrink: 0;
+  width: clamp(160px, 20vw, 240px);
+  height: clamp(110px, 14vw, 160px);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--purple); /* fallback while image loads */
+
+  /* Entrance pop */
+  transition:
+    transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.gs-item:hover {
+  transform: translateY(-6px) scale(1.04);
+  border-color: rgba(201,168,76,0.6);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,0.5),
+    0 0 20px rgba(201,168,76,0.12);
+  z-index: 2;
+}
+.gs-item:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ── Image inside card ── */
+.gs-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+.gs-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.7);
+}
+
+/* ── Overlay with zoom icon ── */
+.gs-item-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(13,11,26,0.2);
+}
+.gs-item-overlay i {
+  font-size: 1.4rem;
+  color: var(--gold);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+  transform: scale(0.7);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.gs-item:hover .gs-item-overlay {
+  opacity: 1;
+}
+.gs-item:hover .gs-item-overlay i {
+  transform: scale(1);
+}
+
+/* ── Gold shimmer on top of each card ── */
+.gs-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(201,168,76,0.08) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.gs-item:hover::after {
+  opacity: 1;
+  animation: gs-shimmer 0.6s ease forwards;
+}
+@keyframes gs-shimmer {
+  from { transform: translateX(-100%) skewX(-12deg); }
+  to   { transform: translateX(200%)  skewX(-12deg); }
+}
+
+/* ── Gold top accent line on hover ── */
+.gs-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: 4;
+}
+.gs-item:hover::before {
+  transform: scaleX(1);
+}
+
+
+/* ════════════════════════════════════════
+   LIGHTBOX
+   ════════════════════════════════════════ */
+
+.gs-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.gs-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Blurred dark backdrop */
+.gs-lb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,5,8,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Main box */
+.gs-lb-box {
+  position: relative;
+  z-index: 1;
+  max-width: min(90vw, 900px);
+  width: 100%;
+  background: linear-gradient(145deg, rgba(45,16,84,0.8), rgba(13,11,26,0.95));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+  animation: gs-lb-pop 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.gs-lightbox.open .gs-lb-box {
+  animation: gs-lb-pop 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes gs-lb-pop {
+  from { opacity: 0; transform: scale(0.88) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* Close button */
+.gs-lb-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.gs-lb-close:hover {
+  background: rgba(201,168,76,0.15);
+  color: var(--gold);
+  transform: rotate(90deg);
+}
+
+/* Prev / Next buttons */
+.gs-lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(13,11,26,0.88);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  font-size: 0.95rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.gs-lb-prev { left: 14px; }
+.gs-lb-next { right: 14px; }
+.gs-lb-nav:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.5);
+}
+.gs-lb-prev:hover { transform: translateY(-50%) translateX(-2px); }
+.gs-lb-next:hover { transform: translateY(-50%) translateX(2px); }
+
+/* Image wrapper */
+.gs-lb-img-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  max-height: 68vh;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* The main image */
+.gs-lb-img {
+  width: 100%;
+  height: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.gs-lb-img.loading {
+  opacity: 0;
+}
+.gs-lb-img.slide-in-right {
+  animation: gs-slide-right 0.32s cubic-bezier(0.4,0,0.2,1) both;
+}
+.gs-lb-img.slide-in-left {
+  animation: gs-slide-left 0.32s cubic-bezier(0.4,0,0.2,1) both;
+}
+@keyframes gs-slide-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes gs-slide-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Loading spinner */
+.gs-lb-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.gs-lb-spinner.visible { opacity: 1; }
+.gs-lb-spinner i {
+  font-size: 2rem;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+/* Footer bar */
+.gs-lb-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  background: rgba(13,11,26,0.6);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.gs-lb-counter {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  min-width: 40px;
+}
+.gs-lb-caption {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+  flex: 1;
+}
+
+/* Dot indicators */
+.gs-lb-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 40px;
+}
+.gs-lb-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.25);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+  padding: 0;
+}
+.gs-lb-dot.active {
+  background: var(--gold);
+  transform: scale(1.35);
+}
+.gs-lb-dot:hover {
+  background: rgba(201,168,76,0.6);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .gs-item {
+    width: clamp(130px,40vw,180px);
+    height: clamp(88px,28vw,120px);
+  }
+  .gs-track { gap: 10px; }
+  .gs-lb-nav { width: 36px; height: 36px; font-size: 0.8rem; }
+  .gs-lb-prev { left: 6px; }
+  .gs-lb-next { right: 6px; }
+  .gs-lb-footer { padding: 10px 14px; }
+}
+</style>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     Paste in your main <script> block or before </body>
+     ============================================================ -->
+<script>
+(function () {
+
+  /* ── Image data ──
+     Add alt text / captions here to match your actual images.
+     Indices match the onclick="gsOpenLightbox(N)" values above. */
+  var GS_IMAGES = [
+    { src: './assets/gallery-1.jpg', caption: 'Astrology Consultation Session' },
+    { src: './assets/gallery-2.jpg', caption: 'Vedic Astrology Reading' },
+    { src: './assets/gallery-3.jpg', caption: 'Kundli Matching Ceremony' },
+    { src: './assets/gallery-4.jpg', caption: 'Love Problem Solution' },
+    { src: './assets/gallery-5.jpg', caption: 'Spiritual Healing Ritual' },
+    { src: './assets/gallery-6.jpg', caption: 'Vashikaran Specialist' },
+    { src: './assets/gallery-7.jpg', caption: 'Horoscope Reading' },
+    { src: './assets/gallery-8.jpg', caption: 'Gemstone Consultation' }
+  ];
+
+  var lbIndex   = 0;
+  var lightbox  = document.getElementById('gsLightbox');
+  var lbImg     = document.getElementById('gsLbImg');
+  var lbSpinner = document.getElementById('gsLbSpinner');
+  var lbCurrent = document.getElementById('gsLbCurrent');
+  var lbTotal   = document.getElementById('gsLbTotal');
+  var lbCaption = document.getElementById('gsLbCaption');
+  var lbDots    = document.getElementById('gsLbDots');
+
+  /* ── Build dot indicators ── */
+  lbTotal.textContent = GS_IMAGES.length;
+  GS_IMAGES.forEach(function (_, i) {
+    var dot = document.createElement('button');
+    dot.className = 'gs-lb-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+    dot.addEventListener('click', function () { gsGoTo(i); });
+    lbDots.appendChild(dot);
+  });
+
+  /* ── Open lightbox ── */
+  window.gsOpenLightbox = function (index) {
+    lbIndex = index;
+    loadImage(index, null);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  /* ── Close lightbox ── */
+  window.gsCloseLightbox = function () {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  /* ── Navigate prev / next ── */
+  window.gsLbNav = function (dir) {
+    var prev = lbIndex;
+    lbIndex  = (lbIndex + dir + GS_IMAGES.length) % GS_IMAGES.length;
+    loadImage(lbIndex, dir > 0 ? 'right' : 'left');
+  };
+
+  /* ── Jump to specific index ── */
+  function gsGoTo(index) {
+    if (index === lbIndex) return;
+    var dir = index > lbIndex ? 'right' : 'left';
+    lbIndex = index;
+    loadImage(lbIndex, dir);
+  }
+
+  /* ── Load image with transition ── */
+  function loadImage(index, direction) {
+    var data = GS_IMAGES[index];
+
+    /* Show spinner */
+    lbImg.classList.add('loading');
+    lbSpinner.classList.add('visible');
+
+    /* Preload */
+    var tempImg    = new Image();
+    tempImg.onload = function () {
+      lbImg.src = data.src;
+      lbImg.alt = data.caption;
+
+      lbSpinner.classList.remove('visible');
+      lbImg.classList.remove('loading', 'slide-in-right', 'slide-in-left');
+
+      /* Trigger slide animation */
+      void lbImg.offsetWidth; /* force reflow */
+      if (direction === 'right') lbImg.classList.add('slide-in-right');
+      if (direction === 'left')  lbImg.classList.add('slide-in-left');
+
+      /* Update meta */
+      lbCurrent.textContent = index + 1;
+      lbCaption.textContent = data.caption;
+
+      /* Update dots */
+      document.querySelectorAll('.gs-lb-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === index);
+      });
+    };
+    tempImg.onerror = function () {
+      /* Image failed — show placeholder text */
+      lbSpinner.classList.remove('visible');
+      lbImg.classList.remove('loading');
+      lbCaption.textContent = 'Image not found — add your photo to ./assets/';
+    };
+    tempImg.src = data.src;
+  }
+
+  /* ── Keyboard navigation ── */
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')      gsCloseLightbox();
+    if (e.key === 'ArrowRight')  gsLbNav(1);
+    if (e.key === 'ArrowLeft')   gsLbNav(-1);
+  });
+
+  /* ── Touch / swipe support ── */
+  var touchStartX = 0;
+  if (lightbox) {
+    lightbox.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', function (e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        gsLbNav(diff > 0 ? 1 : -1);
+      }
+    }, { passive: true });
+  }
+
+  /* ── Pause strip scroll when lightbox is open ── */
+  var track = document.getElementById('gsTrack');
+  var origObserver = new MutationObserver(function () {
+    if (!track) return;
+    track.style.animationPlayState = lightbox.classList.contains('open') ? 'paused' : 'running';
+  });
+  if (lightbox && track) {
+    origObserver.observe(lightbox, { attributes: true, attributeFilter: ['class'] });
+  }
+
+})();
+</script>

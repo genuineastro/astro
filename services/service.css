@@ -49,7 +49,7 @@
    Each page overrides --sp-accent for its unique colour.
    ============================================================ */
 .sp-hero {
-    padding: clamp(64px, 8vw, 110px) clamp(20px, 4vw, 48px) clamp(56px, 6vw, 90px);
+    padding: clamp(40px, 6vw, 110px) clamp(20px, 4vw, 48px) clamp(56px, 6vw, 90px);
     text-align: center;
     position: relative;
     z-index: 2;
@@ -58,6 +58,8 @@
     background:
         radial-gradient(ellipse 80% 60% at 50% 0%, var(--sp-accent-glow, rgba(201,168,76,0.1)) 0%, transparent 65%),
         var(--black);
+
+/* padding-top: 70px; */
 }
 
 /* Small pill badge */
@@ -82,13 +84,222 @@
 }
 
 /* Large service icon */
-.sp-hero-icon {
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    margin-bottom: 18px;
-    display: block;
-    color: var(--sp-accent-color, var(--gold));
+/* ========== HERO ICON ANIMATIONS ========== */
+.sp-badge-ctnr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Wrapper that holds all animation layers */
+.sp-hero-icon-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
     animation: fade-up 0.6s 0.1s ease both;
-    filter: drop-shadow(0 0 28px var(--sp-accent-shadow, rgba(201,168,76,0.4)));
+}
+
+/* ── The actual image ── */
+.sp-hero-icon-img {
+    width: clamp(110px, 14vw, 160px);
+    height: clamp(110px, 14vw, 160px);
+    object-fit: contain;
+    border-radius: 50%;
+    position: relative;
+    z-index: 3;
+
+    /* Continuous gentle float */
+    animation: icon-float 5s ease-in-out infinite;
+
+    /* Drop shadow using page accent colour */
+    filter: drop-shadow(0 0 28px var(--sp-accent-shadow, rgba(201,168,76,0.5)));
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+.sp-hero-icon-wrap:hover .sp-hero-icon-img {
+    filter: drop-shadow(0 0 48px var(--sp-accent-shadow, rgba(201,168,76,0.8)));
+    transform: scale(1.06);
+    animation-play-state: paused;
+}
+
+/* ── Rotating outer glow ring ── */
+.sp-icon-ring {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: transparent;
+    pointer-events: none;
+    z-index: 2;
+}
+.sp-icon-ring-1 {
+    width: calc(clamp(110px, 14vw, 160px) + 28px);
+    height: calc(clamp(110px, 14vw, 160px) + 28px);
+    border-top-color: var(--sp-accent-color, var(--gold));
+    border-right-color: rgba(201, 168, 76, 0.15);
+    border-width: 1.5px;
+    animation: icon-ring-spin 6s linear infinite;
+}
+.sp-icon-ring-2 {
+    width: calc(clamp(110px, 14vw, 160px) + 54px);
+    height: calc(clamp(110px, 14vw, 160px) + 54px);
+    border-bottom-color: var(--sp-accent-border, rgba(201,168,76,0.3));
+    border-left-color: rgba(201, 168, 76, 0.08);
+    border-width: 1px;
+    animation: icon-ring-spin 10s linear infinite reverse;
+}
+.sp-icon-ring-3 {
+    width: calc(clamp(110px, 14vw, 160px) + 80px);
+    height: calc(clamp(110px, 14vw, 160px) + 80px);
+    border-top-color: rgba(124, 58, 237, 0.25);
+    border-width: 1px;
+    animation: icon-ring-spin 16s linear infinite;
+}
+
+/* ── Pulsing glow blob behind the icon ── */
+.sp-icon-glow {
+    position: absolute;
+    width: calc(clamp(110px, 14vw, 160px) + 20px);
+    height: calc(clamp(110px, 14vw, 160px) + 20px);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        var(--sp-accent-glow, rgba(201,168,76,0.18)) 0%,
+        transparent 70%
+    );
+    filter: blur(16px);
+    z-index: 1;
+    animation: icon-glow-pulse 3s ease-in-out infinite;
+}
+
+/* ── Sparkle dots orbiting the icon ── */
+.sp-icon-sparkles {
+    position: absolute;
+    width: calc(clamp(110px, 14vw, 160px) + 60px);
+    height: calc(clamp(110px, 14vw, 160px) + 60px);
+    border-radius: 50%;
+    animation: icon-ring-spin 8s linear infinite;
+    z-index: 4;
+    pointer-events: none;
+}
+.sp-icon-sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(201, 168, 76, 0.9);
+    animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+
+/* Position each sparkle dot around the circle */
+.sp-icon-sparkle:nth-child(1) {
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+    width: 6px; height: 6px;
+}
+.sp-icon-sparkle:nth-child(2) {
+    top: 25%; right: 0;
+    animation-delay: 0.5s;
+    width: 4px; height: 4px;
+}
+.sp-icon-sparkle:nth-child(3) {
+    bottom: 5%; right: 15%;
+    animation-delay: 1s;
+    width: 5px; height: 5px;
+}
+.sp-icon-sparkle:nth-child(4) {
+    bottom: 5%; left: 15%;
+    animation-delay: 1.5s;
+    width: 4px; height: 4px;
+}
+.sp-icon-sparkle:nth-child(5) {
+    top: 25%; left: 0;
+    animation-delay: 0.8s;
+    width: 3px; height: 3px;
+}
+
+/* ── Star particles that shoot outward ── */
+.sp-icon-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+.sp-icon-particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particle-shoot 4s ease-out infinite;
+}
+.sp-icon-particle:nth-child(1)  { animation-delay: 0s;    --angle: 0deg;   }
+.sp-icon-particle:nth-child(2)  { animation-delay: 0.5s;  --angle: 45deg;  }
+.sp-icon-particle:nth-child(3)  { animation-delay: 1s;    --angle: 90deg;  }
+.sp-icon-particle:nth-child(4)  { animation-delay: 1.5s;  --angle: 135deg; }
+.sp-icon-particle:nth-child(5)  { animation-delay: 2s;    --angle: 180deg; }
+.sp-icon-particle:nth-child(6)  { animation-delay: 2.5s;  --angle: 225deg; }
+.sp-icon-particle:nth-child(7)  { animation-delay: 3s;    --angle: 270deg; }
+.sp-icon-particle:nth-child(8)  { animation-delay: 3.5s;  --angle: 315deg; }
+
+/* ── Keyframes ── */
+
+/* Gentle floating bob */
+@keyframes icon-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    30%       { transform: translateY(-10px) rotate(1.5deg); }
+    60%       { transform: translateY(-6px) rotate(-1deg); }
+}
+
+/* Ring rotation */
+@keyframes icon-ring-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Glow pulse */
+@keyframes icon-glow-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+/* Sparkle dot twinkle */
+@keyframes sparkle-twinkle {
+    0%, 100% {
+        opacity: 0.2;
+        transform: translateX(-50%) scale(0.6);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+/* Particle shooting outward */
+@keyframes particle-shoot {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0px);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(var(--angle)) translateX(80px);
+    }
 }
 
 /* Main headline */
