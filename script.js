@@ -182,8 +182,156 @@ document.getElementById('successModal').addEventListener('click', function (e) {
 
 
 
+/* ========== GALLERY STRIP LIGHTBOX ========== */
+(function () {
 
-document.getElementById('x-mark').addEventListener("click", () => {
-    console.log("hello")
-    document.getElementById('top-bar').style.display = 'none'
-})
+  /* ── Update these src paths to match your actual image files ── */
+  var GS_IMAGES = [
+    { src: './assets/1.jpeg',                caption: 'Astrology Consultation Session' },
+    { src: './assets/2.jpeg',                caption: 'Vedic Astrology Reading' },
+    { src: './assets/3.jpeg',                caption: 'Kundli Matching' },
+    { src: './assets/1.jpeg',                caption: 'Love Problem Solution' },
+    { src: './assets/4.jpeg',                caption: 'Spiritual Healing' },
+    { src: './assets/screenshots/wp-1.jpeg', caption: 'Vashikaran Specialist' },
+    { src: './assets/screenshots/wp-1.jpeg', caption: 'Horoscope Reading' },
+    { src: './assets/screenshots/wp-1.jpeg', caption: 'Gemstone Consultation' }
+  ];
+
+  /* ── DOM references ── */
+  var lightbox  = document.getElementById('gsLightbox');
+  var lbImg     = document.getElementById('gsLbImg');
+  var lbSpinner = document.getElementById('gsLbSpinner');
+  var lbCurrent = document.getElementById('gsLbCurrent');
+  var lbTotal   = document.getElementById('gsLbTotal');
+  var lbCaption = document.getElementById('gsLbCaption');
+  var lbDots    = document.getElementById('gsLbDots');
+  var track     = document.getElementById('gsTrack');
+  var lbIndex   = 0;
+
+  /* ── Guard: exit if lightbox not on page ── */
+  if (!lightbox) return;
+
+  /* ── Set total count ── */
+  if (lbTotal) lbTotal.textContent = GS_IMAGES.length;
+
+  /* ── Build dot indicators ── */
+  if (lbDots) {
+    GS_IMAGES.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'gs-lb-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+      dot.addEventListener('click', function () { gsGoTo(i); });
+      lbDots.appendChild(dot);
+    });
+  }
+
+  /* ── Open lightbox ── */
+  window.gsOpenLightbox = function (index) {
+    lbIndex = index;
+    loadImage(index, null);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  /* ── Close lightbox ── */
+  window.gsCloseLightbox = function () {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  /* ── Navigate prev / next ── */
+  window.gsLbNav = function (dir) {
+    lbIndex = (lbIndex + dir + GS_IMAGES.length) % GS_IMAGES.length;
+    loadImage(lbIndex, dir > 0 ? 'right' : 'left');
+  };
+
+  /* ── Jump to specific dot index ── */
+  function gsGoTo(index) {
+    if (index === lbIndex) return;
+    var dir = index > lbIndex ? 'right' : 'left';
+    lbIndex = index;
+    loadImage(lbIndex, dir);
+  }
+
+  /* ── Load image with slide transition ── */
+  function loadImage(index, direction) {
+    var data = GS_IMAGES[index];
+    if (!data) return;
+
+    /* Show spinner while loading */
+    if (lbImg)     lbImg.classList.add('loading');
+    if (lbSpinner) lbSpinner.classList.add('visible');
+
+    var tempImg = new Image();
+
+    tempImg.onload = function () {
+      lbImg.src = data.src;
+      lbImg.alt = data.caption || '';
+
+      lbSpinner.classList.remove('visible');
+      lbImg.classList.remove('loading', 'slide-in-right', 'slide-in-left');
+
+      /* Force reflow so animation re-triggers */
+      void lbImg.offsetWidth;
+
+      if (direction === 'right') lbImg.classList.add('slide-in-right');
+      if (direction === 'left')  lbImg.classList.add('slide-in-left');
+
+      /* Update counter */
+      if (lbCurrent) lbCurrent.textContent = index + 1;
+
+      /* Update caption */
+      if (lbCaption) lbCaption.textContent = data.caption || 'Genuine Astro Guide';
+
+      /* Update dots */
+      document.querySelectorAll('.gs-lb-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === index);
+      });
+    };
+
+    tempImg.onerror = function () {
+      if (lbSpinner) lbSpinner.classList.remove('visible');
+      if (lbImg)     lbImg.classList.remove('loading');
+      if (lbCaption) lbCaption.textContent = 'Image not found — check your file path';
+    };
+
+    tempImg.src = data.src;
+  }
+
+  /* ── Keyboard: Escape / Arrow keys ── */
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')     gsCloseLightbox();
+    if (e.key === 'ArrowRight') gsLbNav(1);
+    if (e.key === 'ArrowLeft')  gsLbNav(-1);
+  });
+
+  /* ── Touch swipe support ── */
+  var touchStartX = 0;
+  lightbox.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', function (e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) gsLbNav(diff > 0 ? 1 : -1);
+  }, { passive: true });
+
+  /* ── Pause strip scroll when lightbox is open ── */
+  if (track) {
+    new MutationObserver(function () {
+      track.style.animationPlayState =
+        lightbox.classList.contains('open') ? 'paused' : 'running';
+    }).observe(lightbox, { attributes: true, attributeFilter: ['class'] });
+  }
+
+})();
+
+
+/* ========== TOP BAR CLOSE BUTTON ========== */
+var xMark = document.getElementById('x-mark');
+if (xMark) {
+  xMark.addEventListener('click', function () {
+    var bar = document.getElementById('top-bar');
+    if (bar) bar.style.display = 'none';
+  });
+}

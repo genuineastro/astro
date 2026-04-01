@@ -1799,6 +1799,7 @@ a {
     font-family: var(--font-body);
     font-size: 0.92rem;
     outline: none;
+    appearance: none;
     -webkit-appearance: none;
     transition: border-color var(--transition), box-shadow var(--transition);
 }
@@ -2343,4 +2344,30 @@ footer {
     .footer-brand .nav-logo {
         font-size: 1.3rem;
     }
+}
+
+
+
+
+
+.disclaimer {
+  width: 100%;
+  padding: 14px 18px;
+  background: linear-gradient(90deg, #17173d, #07071c);
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.disclaimer p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+}
+
+.disclaimer strong {
+  color: #ffd32a;
+  font-weight: 600;
 }
