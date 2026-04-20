@@ -187,14 +187,10 @@ document.getElementById('successModal').addEventListener('click', function (e) {
 
   /* ── Update these src paths to match your actual image files ── */
   var GS_IMAGES = [
-    { src: './assets/1.jpeg',                caption: 'Astrology Consultation Session' },
-    { src: './assets/2.jpeg',                caption: 'Vedic Astrology Reading' },
-    { src: './assets/3.jpeg',                caption: 'Kundli Matching' },
-    { src: './assets/1.jpeg',                caption: 'Love Problem Solution' },
-    { src: './assets/4.jpeg',                caption: 'Spiritual Healing' },
-    { src: './assets/screenshots/wp-1.jpeg', caption: 'Vashikaran Specialist' },
-    { src: './assets/screenshots/wp-1.jpeg', caption: 'Horoscope Reading' },
-    { src: './assets/screenshots/wp-1.jpeg', caption: 'Gemstone Consultation' }
+    { src: './assets/screenshots/Review1.png',                caption: '' },
+    { src: './assets/screenshots/Review2.png',                caption: '' },
+    { src: './assets/screenshots/Review3.png',                caption: '' },
+    { src: './assets/screenshots/Review4.png',                caption: '' },
   ];
 
   /* ── DOM references ── */
