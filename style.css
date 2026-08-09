@@ -87,7 +87,7 @@ body {
 
 img {
     max-width: 100%;
-    display: block;
+    /* display: block; */
 }
 
 a {
@@ -617,17 +617,19 @@ a {
 }
 
 /* "Services" trigger link — show chevron arrow */
-.has-dropdown > a {
+.has-dropdown>a {
     display: flex;
     align-items: center;
     gap: 5px;
 }
-.has-dropdown > a .nav-chevron {
+
+.has-dropdown>a .nav-chevron {
     font-size: 0.6rem;
     color: var(--muted);
     transition: transform 0.25s ease, color 0.25s ease;
 }
-.has-dropdown:hover > a .nav-chevron {
+
+.has-dropdown:hover>a .nav-chevron {
     transform: rotate(180deg);
     color: var(--gold);
 }
@@ -1257,6 +1259,9 @@ a {
 .about-avatar {
     font-size: 5rem;
     filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.4));
+}
+.about-avatar img{
+    height: 100%;
 }
 
 .about-name-tag {
@@ -2088,8 +2093,8 @@ footer {
 
 /* Phone call variant — red */
 #float-ca {
-    background: linear-gradient(135deg, #d32525, #b81616db);
-    box-shadow: 0 4px 20px rgba(211, 37, 37, 0.5);
+    background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCAF45);
+    box-shadow: 0 4px 20px rgba(253, 29, 29, 0.4);
     animation: float-pulse-ca 3s ease-in-out infinite;
 }
 
@@ -2351,23 +2356,23 @@ footer {
 
 
 .disclaimer {
-  width: 100%;
-  padding: 14px 18px;
-  background: linear-gradient(90deg, #17173d, #07071c);
-  border-radius: 8px;
-  text-align: center;
-  margin: 20px 0;
+    width: 100%;
+    padding: 14px 18px;
+    background: linear-gradient(90deg, #17173d, #07071c);
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
 }
 
 .disclaimer p {
-  margin: 0;
-  font-size: 14px;
-  color: #ffffff;
-  line-height: 1.5;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
 }
 
 .disclaimer strong {
-  color: #ffd32a;
-  font-weight: 600;
+    color: #ffd32a;
+    font-weight: 600;
 }
